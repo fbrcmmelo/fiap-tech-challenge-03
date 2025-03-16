@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2025-03-16T16:02:01.125Z",
+        "start_timestamp": "2025-03-16T18:51:07.754Z",
         "line": 3,
         "name": "Cadastrar um novo restaurante",
         "description": "",
@@ -13,9 +13,8 @@
         "steps": [
           {
             "result": {
-              "error_message": "java.net.ConnectException: Connection refused\n\tat java.base/sun.nio.ch.Net.connect0(Native Method)\n\tat java.base/sun.nio.ch.Net.connect(Net.java:579)\n\tat java.base/sun.nio.ch.Net.connect(Net.java:568)\n\tat java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)\n\tat java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)\n\tat java.base/java.net.Socket.connect(Socket.java:633)\n\tat org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:121)\n\tat org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)\n\tat org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)\n\tat org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:605)\n\tat org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:440)\n\tat org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)\n\tat org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)\n\tat io.restassured.internal.RestAssuredHttpBuilder.doRequest(RestAssuredHttpBuilder.java:141)\n\tat io.restassured.internal.http.HTTPBuilder.post(HTTPBuilder.java:349)\n\tat io.restassured.internal.http.HTTPBuilder$post$2.call(Unknown Source)\n\tat io.restassured.internal.RequestSpecificationImpl.sendRequest(RequestSpecificationImpl.groovy:1209)\n\tat io.restassured.internal.RequestSpecificationImpl.this$2$sendRequest(RequestSpecificationImpl.groovy)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)\n\tat groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)\n\tat groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:790)\n\tat io.restassured.internal.RequestSpecificationImpl.invokeMethod(RequestSpecificationImpl.groovy)\n\tat org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:46)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:166)\n\tat io.restassured.internal.filter.SendRequestFilter.filter(SendRequestFilter.groovy:30)\n\tat io.restassured.filter.Filter$filter.call(Unknown Source)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)\n\tat io.restassured.filter.Filter$filter$0.call(Unknown Source)\n\tat io.restassured.internal.filter.FilterContextImpl.next(FilterContextImpl.groovy:72)\n\tat io.restassured.filter.time.TimingFilter.filter(TimingFilter.java:56)\n\tat io.restassured.filter.Filter$filter$0.call(Unknown Source)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)\n\tat io.restassured.filter.Filter$filter$0.call(Unknown Source)\n\tat io.restassured.internal.filter.FilterContextImpl.next(FilterContextImpl.groovy:72)\n\tat io.restassured.filter.log.StatusCodeBasedLoggingFilter.filter(StatusCodeBasedLoggingFilter.java:112)\n\tat io.restassured.filter.log.ResponseLoggingFilter.filter(ResponseLoggingFilter.java:31)\n\tat io.restassured.filter.Filter$filter$0.call(Unknown Source)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)\n\tat io.restassured.filter.Filter$filter$0.call(Unknown Source)\n\tat io.restassured.internal.filter.FilterContextImpl.next(FilterContextImpl.groovy:72)\n\tat io.restassured.filter.log.RequestLoggingFilter.filter(RequestLoggingFilter.java:146)\n\tat io.restassured.filter.Filter$filter$0.call(Unknown Source)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)\n\tat io.restassured.filter.Filter$filter.call(Unknown Source)\n\tat io.restassured.internal.filter.FilterContextImpl.next(FilterContextImpl.groovy:72)\n\tat io.restassured.filter.FilterContext$next.call(Unknown Source)\n\tat io.restassured.internal.filter.CsrfFilter.filter(CsrfFilter.groovy:70)\n\tat io.restassured.filter.Filter$filter.call(Unknown Source)\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)\n\tat io.restassured.filter.Filter$filter.call(Unknown Source)\n\tat io.restassured.internal.filter.FilterContextImpl.next(FilterContextImpl.groovy:72)\n\tat io.restassured.filter.FilterContext$next.call(Unknown Source)\n\tat io.restassured.internal.RequestSpecificationImpl.applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy:1704)\n\tat io.restassured.internal.RequestSpecificationImpl.this$2$applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)\n\tat groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)\n\tat groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:790)\n\tat io.restassured.internal.RequestSpecificationImpl.invokeMethod(RequestSpecificationImpl.groovy)\n\tat org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:46)\n\tat org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.callCurrent(PogoInterceptableSite.java:57)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:203)\n\tat io.restassured.internal.RequestSpecificationImpl.applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy:1710)\n\tat io.restassured.internal.RequestSpecificationImpl.this$2$applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)\n\tat groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)\n\tat groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)\n\tat groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:790)\n\tat io.restassured.internal.RequestSpecificationImpl.invokeMethod(RequestSpecificationImpl.groovy)\n\tat org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:46)\n\tat org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.callCurrent(PogoInterceptableSite.java:57)\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:203)\n\tat io.restassured.internal.RequestSpecificationImpl.post(RequestSpecificationImpl.groovy:176)\n\tat io.restassured.internal.RequestSpecificationImpl.post(RequestSpecificationImpl.groovy)\n\tat com.fiap.tech_challenge_03.bdd.CadastrosCT.submeterNovoRestaurante(CadastrosCT.java:24)\n\tat ✽.submeter um novo restaurante(classpath:features/Cadastros.feature:4)\n",
-              "duration": 19687682,
-              "status": "failed"
+              "duration": 1105984308,
+              "status": "passed"
             },
             "line": 4,
             "name": "submeter um novo restaurante",
@@ -26,13 +25,72 @@
           },
           {
             "result": {
-              "duration": 129114,
-              "status": "skipped"
+              "duration": 473122621,
+              "status": "passed"
             },
             "line": 5,
             "name": "o restaurante é cadastrado com sucesso",
             "match": {
               "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.restauranteCadastradoComSucesso()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-03-16T18:51:09.348Z",
+        "line": 7,
+        "name": "Busca de restaurantes",
+        "description": "",
+        "id": "api---cadastros;busca-de-restaurantes",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 33737709,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "que haja restaurantes cadastrados",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.restauranteCadastrado()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 26955073,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "submeter uma busca com parâmetros",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.buscarRestaurantePorParametros()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 47254265,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "os parâmetros serem equivalentes à algum restaurante",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.parametrosDeBuscaEquivalantesComAlgumRestaurante()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 12311921,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "os restaurantes encontrados serão exibidos",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.exibirRestaurantesEcontrados()"
             },
             "keyword": "Then "
           }

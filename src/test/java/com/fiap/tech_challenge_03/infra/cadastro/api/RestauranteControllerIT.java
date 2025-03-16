@@ -24,8 +24,7 @@ class RestauranteControllerIT {
     }
 
     @Test
-    void deverPermitirCadastrarRestaurante()
-            throws Exception {
+    void deverPermitirCadastrarRestaurante() {
         // Arrange
         var input = RestauranteBuilder.cadastroInput();
 
@@ -40,5 +39,26 @@ class RestauranteControllerIT {
                 .body("$", Matchers.hasKey("id"))
                 .body("$", Matchers.hasKey("nome"))
                 .body("nome", Matchers.equalTo(input.nome()));
+    }
+
+    @Test
+    void deveEncontrarRestauranteQuandoRealizarBuscaComParametros() {
+        // Arrange
+        var input = RestauranteBuilder.buscarComParametrosInput();
+
+        // Act & Assert
+        given()
+                .contentType("application/json")
+                .body(input)
+                .when()
+                .post("/restaurantes/buscar")
+                .then()
+                .statusCode(200)
+                .body("$", Matchers.hasSize(0));
+//                .body("$[0]", Matchers.hasKey("id"))
+//                .body("$[0]", Matchers.hasKey("nome"))
+//                .body("[0].nome", Matchers.equalTo(input.nome()));
+
+        //TODO: Ajustar apos integracao com repositorio, esperar receber objetos
     }
 }

@@ -39,4 +39,21 @@ class RestauranteGatewayImplIT {
                 entitySaved.getFuncionamento().getDiasDaSemana());
         assertThat(entity.getTipoDeCozinha()).isEqualTo(entitySaved.getTipoDeCozinha());
     }
+
+    @Test
+    void deveBuscarRestaurantesEquivalantesPesquisa() {
+        // Arrange
+        final var input = RestauranteBuilder.buscarComParametrosInput();
+        final var entity = RestauranteBuilder.entity();
+
+        //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
+//        when(repository.findAll(any(Example.class))).thenReturn(Collections.singletonList(entity));
+
+        // Act
+        final var restaurantes = this.gateway.buscarComParametros(input);
+
+        assertThat(restaurantes)
+                .isNotNull()
+                .isEmpty();
+    }
 }

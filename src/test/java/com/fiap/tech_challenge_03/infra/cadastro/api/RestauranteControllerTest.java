@@ -1,5 +1,6 @@
 package com.fiap.tech_challenge_03.infra.cadastro.api;
 
+import com.fiap.tech_challenge_03.application.cadastro.usecase.IBuscarRestaurantesUseCase;
 import com.fiap.tech_challenge_03.application.cadastro.usecase.ICadastrarRestauranteUseCase;
 import com.fiap.tech_challenge_03.infra.adapter.Presenter;
 import com.fiap.tech_challenge_03.infra.cadastro.adapter.RestauranteMapper;
@@ -14,16 +15,21 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.util.Collections;
+
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 class RestauranteControllerTest {
 
-    @Mock
-    private ICadastrarRestauranteUseCase cadastrarUseCase;
     @InjectMocks
     private RestauranteController restauranteController;
+    @Mock
+    private ICadastrarRestauranteUseCase cadastrarUseCase;
+    @Mock
+    private IBuscarRestaurantesUseCase buscarRestaurantesUseCase;
+
     private MockMvc mockMvc;
     private AutoCloseable openMocks;
 
@@ -44,7 +50,7 @@ class RestauranteControllerTest {
             throws Exception {
         // Arrange
         var input = RestauranteBuilder.cadastroInput();
-        var output = RestauranteBuilder.cadastroOutput();
+        var output = RestauranteBuilder.output();
         var dto = RestauranteMapper.dtoFrom(output);
 
         when(cadastrarUseCase.execute(input)).thenReturn(output);
@@ -61,5 +67,31 @@ class RestauranteControllerTest {
                 .andExpect(jsonPath("$.nome").value(dto.getNome()));
 
         verify(cadastrarUseCase, times(1)).execute(input);
+    }
+
+    @Test
+    void deveEncontrarRestauranteQuandoRealizarBuscaComParametros()
+            throws Exception {
+        // Arrange
+        var input = RestauranteBuilder.buscarComParametrosInput();
+        var output = RestauranteBuilder.output();
+        var dto = RestauranteMapper.dtoFrom(output);
+
+        when(buscarRestaurantesUseCase.execute(input)).thenReturn(Collections.singletonList(output));
+
+        // Act
+        var response = mockMvc.perform(post("/restaurantes/buscar")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(Presenter.jsonFrom(input)));
+
+        // Assert
+        response.andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$").isNotEmpty())
+                .andExpect(jsonPath("$[0].id").value(dto.getId()))
+                .andExpect(jsonPath("$[0].nome").value(dto.getNome()));
+
+        verify(buscarRestaurantesUseCase, times(1)).execute(input);
     }
 }

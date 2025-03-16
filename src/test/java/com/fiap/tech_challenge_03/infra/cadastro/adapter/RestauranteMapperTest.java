@@ -13,7 +13,7 @@ class RestauranteMapperTest {
     @Test
     void deveConverterParaRestauranteDTO() {
         // Arrange
-        final var output = RestauranteBuilder.cadastroOutput();
+        final var output = RestauranteBuilder.output();
 
         // Act
         final var dto = mapper.dtoFrom(output);
