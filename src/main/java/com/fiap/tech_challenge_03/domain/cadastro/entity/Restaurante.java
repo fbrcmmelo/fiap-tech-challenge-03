@@ -46,4 +46,5 @@ public class Restaurante {
         this.capacidade = capacidade;
         this.tipoDeCozinha = tipoDeCozinha;
     }
+
 }

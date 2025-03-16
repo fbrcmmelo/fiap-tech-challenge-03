@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.usecase;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.output.CadastrarRestauranteOutput;
+import com.fiap.tech_challenge_03.application.cadastro.dto.output.RestauranteOutput;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ class CadastrarRestauranteUseCaseIT {
 
         // Assert
         assertThat(output)
-                .isInstanceOf(CadastrarRestauranteOutput.class)
+                .isInstanceOf(RestauranteOutput.class)
                 .isNotNull();
         assertThat(input.nome()).isEqualTo(output.nome());
         assertThat(input.capacidade()).isEqualTo(output.capacidade());

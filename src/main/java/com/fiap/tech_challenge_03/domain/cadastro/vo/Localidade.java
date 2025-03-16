@@ -26,6 +26,28 @@ public class Localidade {
         Objects.requireNonNull(cidade, "Cidade não pode estar null");
         Objects.requireNonNull(estado, "Estado não pode estar null");
 
+        validate(lougradouro, cidade, estado);
+
+        this.numero = numero;
+        this.lougradouro = lougradouro;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
+
+
+    public Localidade(String logradouro, String cidade, String estado) {
+        Objects.requireNonNull(lougradouro, "Logradouro não pode estar null");
+        Objects.requireNonNull(cidade, "Cidade não pode estar null");
+        Objects.requireNonNull(estado, "Estado não pode estar null");
+
+        validate(lougradouro, cidade, estado);
+
+        this.lougradouro = lougradouro;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
+
+    private static void validate(String lougradouro, String cidade, String estado) {
         if (lougradouro.isEmpty()) {
             throw new DomainException("Logradouro não pode estar em branco");
         }
@@ -37,10 +59,6 @@ public class Localidade {
         if (estado.isEmpty()) {
             throw new DomainException("Estado não pode estar em branco");
         }
-
-        this.numero = numero;
-        this.lougradouro = lougradouro;
-        this.cidade = cidade;
-        this.estado = estado;
     }
+
 }

@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.usecase;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.output.CadastrarRestauranteOutput;
+import com.fiap.tech_challenge_03.application.cadastro.dto.output.RestauranteOutput;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
 import com.fiap.tech_challenge_03.domain.cadastro.service.RestauranteDomainService;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
@@ -41,7 +41,7 @@ class CadastrarRestauranteUseCaseTest {
         // Arrange
         final var input = RestauranteBuilder.cadastroInput();
         final var entity = RestauranteBuilder.entity();
-        final var outputMocked = CadastrarRestauranteOutput.from(entity);
+        final var outputMocked = RestauranteOutput.from(entity);
 
         when(restauranteDomainService.cadastrar(any(Restaurante.class))).thenReturn(entity);
 
@@ -50,7 +50,7 @@ class CadastrarRestauranteUseCaseTest {
 
         // Assert
         assertThat(output)
-                .isInstanceOf(CadastrarRestauranteOutput.class)
+                .isInstanceOf(RestauranteOutput.class)
                 .isNotNull();
         assertThat(output.id()).isEqualTo(outputMocked.id());
         assertThat(output.nome()).isEqualTo(outputMocked.nome());

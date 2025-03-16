@@ -8,6 +8,7 @@ import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
@@ -22,7 +23,8 @@ class RestauranteControllerTest {
 
     @Mock
     private ICadastrarRestauranteUseCase cadastrarUseCase;
-
+    @InjectMocks
+    private RestauranteController restauranteController;
     private MockMvc mockMvc;
     private AutoCloseable openMocks;
 
@@ -30,8 +32,6 @@ class RestauranteControllerTest {
     void setUp() {
         this.openMocks = MockitoAnnotations.openMocks(this);
         this.cadastrarUseCase = mock(CadastrarRestauranteUseCase.class);
-
-        final var restauranteController = new RestauranteController(cadastrarUseCase);
 
         mockMvc = MockMvcBuilders.standaloneSetup(restauranteController).build();
     }
