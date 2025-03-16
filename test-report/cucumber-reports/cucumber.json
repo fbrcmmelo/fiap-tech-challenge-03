@@ -1,0 +1,48 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2025-03-16T05:15:34.827Z",
+        "line": 3,
+        "name": "Cadastrar um novo restaurante",
+        "description": "",
+        "id": "api---cadastros;cadastrar-um-novo-restaurante",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1044790636,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "submeter um novo restaurante",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.submeterNovoRestaurante()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 344986720,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "o restaurante é cadastrado com sucesso",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.restauranteCadastradoComSucesso()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "API - Cadastros",
+    "description": "",
+    "id": "api---cadastros",
+    "keyword": "Feature",
+    "uri": "classpath:features/Cadastros.feature",
+    "tags": []
+  }
+]
