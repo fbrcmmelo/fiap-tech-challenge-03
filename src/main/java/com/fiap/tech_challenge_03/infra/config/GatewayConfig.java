@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.infra.config;
 
-import com.fiap.tech_challenge_03.domain.cadastro.gateway.RestauranteGateway;
+import com.fiap.tech_challenge_03.domain.cadastro.gateway.IRestauranteGateway;
 import com.fiap.tech_challenge_03.infra.cadastro.gateway.RestauranteGatewayImpl;
 import com.fiap.tech_challenge_03.infra.cadastro.repository.RestauranteMongoRepository;
 import com.fiap.tech_challenge_03.infra.gateway.DomainEventPubImpl;
@@ -18,7 +18,7 @@ public class GatewayConfig {
     }
 
     @Bean
-    RestauranteGateway restauranteGateway(final RestauranteMongoRepository repository) {
+    IRestauranteGateway restauranteGateway(final RestauranteMongoRepository repository) {
         return new RestauranteGatewayImpl(repository);
     }
 

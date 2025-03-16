@@ -21,10 +21,10 @@ public class Localidade {
     private String estado;
 
     public Localidade(Integer numero, String lougradouro, String cidade, String estado) {
-        Objects.requireNonNull(numero);
-        Objects.requireNonNull(lougradouro);
-        Objects.requireNonNull(cidade);
-        Objects.requireNonNull(estado);
+        Objects.requireNonNull(numero, "Numero não pode estar null");
+        Objects.requireNonNull(lougradouro, "Logradouro não pode estar null");
+        Objects.requireNonNull(cidade, "Cidade não pode estar null");
+        Objects.requireNonNull(estado, "Estado não pode estar null");
 
         if (lougradouro.isEmpty()) {
             throw new DomainException("Logradouro não pode estar em branco");

@@ -24,9 +24,9 @@ public class Fucionamento {
     private Set<Integer> diasDaSemana;
 
     public Fucionamento(String horaInicial, String horaFinal, Set<Integer> diasDaSemana) {
-        Objects.requireNonNull(horaInicial);
-        Objects.requireNonNull(horaFinal);
-        Objects.requireNonNull(diasDaSemana);
+        Objects.requireNonNull(horaInicial, "Hora inicial não pode estar null");
+        Objects.requireNonNull(horaFinal, "Hora final não pode estar null");
+        Objects.requireNonNull(diasDaSemana, "Dias da Semana não pode estar null");
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         try {
