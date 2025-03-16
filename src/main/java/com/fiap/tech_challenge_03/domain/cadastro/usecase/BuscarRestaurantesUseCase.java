@@ -21,6 +21,9 @@ public class BuscarRestaurantesUseCase implements IBuscarRestaurantesUseCase {
         if (input == null) {
             throw new DomainException("Busca precisa ter ao menos um parâmetro");
         }
-        return this.service.buscaComParametros(input);
+        return this.service.buscarComParametros(input)
+                .stream()
+                .map(RestauranteOutput::from)
+                .toList();
     }
 }

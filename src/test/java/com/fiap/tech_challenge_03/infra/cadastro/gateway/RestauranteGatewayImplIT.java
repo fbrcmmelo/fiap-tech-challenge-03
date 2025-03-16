@@ -34,10 +34,9 @@ class RestauranteGatewayImplIT {
         assertThat(entity.getLocalidade().getNumero()).isEqualTo(entitySaved.getLocalidade().getNumero());
         assertThat(entity.getFuncionamento().getHoraInicial()).isEqualTo(
                 entitySaved.getFuncionamento().getHoraInicial());
-        assertThat(entity.getFuncionamento().getHoraFinal()).isEqualTo(entitySaved.getFuncionamento().
-                getHoraFinal());
-        assertThat(entity.getFuncionamento().getDiasDaSemana()).isEqualTo(entitySaved.getFuncionamento().
-                getDiasDaSemana());
+        assertThat(entity.getFuncionamento().getHoraFinal()).isEqualTo(entitySaved.getFuncionamento().getHoraFinal());
+        assertThat(entity.getFuncionamento().getDiasDaSemana()).isEqualTo(
+                entitySaved.getFuncionamento().getDiasDaSemana());
         assertThat(entity.getTipoDeCozinha()).isEqualTo(entitySaved.getTipoDeCozinha());
     }
 }

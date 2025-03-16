@@ -1,7 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.service;
 
 import com.fiap.tech_challenge_03.application.cadastro.dto.input.BuscarRestauranteInput;
-import com.fiap.tech_challenge_03.application.cadastro.dto.output.RestauranteOutput;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
 import com.fiap.tech_challenge_03.domain.cadastro.event.EventoRestauranteCadastrado;
 import com.fiap.tech_challenge_03.domain.cadastro.gateway.IRestauranteGateway;
@@ -25,8 +24,7 @@ public class RestauranteDomainService {
         return restauranteCadastrado;
     }
 
-    public Collection<RestauranteOutput> buscaComParametros(BuscarRestauranteInput input) {
-        final var restaurantes = this.gateway.buscarComParametros(input);
-        return restaurantes.stream().map(RestauranteOutput::from).toList();
+    public Collection<Restaurante> buscarComParametros(BuscarRestauranteInput input) {
+        return this.gateway.buscarComParametros(input);
     }
 }

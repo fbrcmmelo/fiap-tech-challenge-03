@@ -1,7 +1,6 @@
 package com.fiap.tech_challenge_03.infra.cadastro.api;
 
 import com.fiap.tech_challenge_03.application.cadastro.usecase.ICadastrarRestauranteUseCase;
-import com.fiap.tech_challenge_03.domain.cadastro.usecase.CadastrarRestauranteUseCase;
 import com.fiap.tech_challenge_03.infra.adapter.Presenter;
 import com.fiap.tech_challenge_03.infra.cadastro.adapter.RestauranteMapper;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
@@ -31,15 +30,13 @@ class RestauranteControllerTest {
     @BeforeEach
     void setUp() {
         this.openMocks = MockitoAnnotations.openMocks(this);
-        this.cadastrarUseCase = mock(CadastrarRestauranteUseCase.class);
-
         mockMvc = MockMvcBuilders.standaloneSetup(restauranteController).build();
     }
 
     @AfterEach
     void tearDown()
             throws Exception {
-        openMocks.close();
+        this.openMocks.close();
     }
 
     @Test

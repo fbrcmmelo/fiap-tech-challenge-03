@@ -37,7 +37,6 @@ class RestauranteGatewayImplTest {
     void deveCadastrarRestauranteNoRepositorio() {
         // Arrange
         final var entity = RestauranteBuilder.entity();
-        final var jpaEntity = RestauranteBuilder.jpaEntity();
 
         //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
 //        when(repository.save(jpaEntity)).thenReturn(jpaEntity);
@@ -49,20 +48,19 @@ class RestauranteGatewayImplTest {
         assertThat(entitySaved)
                 .isInstanceOf(Restaurante.class)
                 .isNotNull();
-        assertThat(jpaEntity.getId()).isEqualTo(entitySaved.getId());
-        assertThat(jpaEntity.getNome()).isEqualTo(entitySaved.getNome());
-        assertThat(jpaEntity.getCapacidade()).isEqualTo(entitySaved.getCapacidade());
-        assertThat(jpaEntity.getLocalidade().getLougradouro()).isEqualTo(entitySaved.getLocalidade().getLougradouro());
-        assertThat(jpaEntity.getLocalidade().getCidade()).isEqualTo(entitySaved.getLocalidade().getCidade());
-        assertThat(jpaEntity.getLocalidade().getEstado()).isEqualTo(entitySaved.getLocalidade().getEstado());
-        assertThat(jpaEntity.getLocalidade().getNumero()).isEqualTo(entitySaved.getLocalidade().getNumero());
-        assertThat(jpaEntity.getFuncionamento().getHoraInicial()).isEqualTo(
+        assertThat(entity.getId()).isEqualTo(entitySaved.getId());
+        assertThat(entity.getNome().nome()).isEqualTo(entitySaved.getNome().nome());
+        assertThat(entity.getCapacidade()).isEqualTo(entitySaved.getCapacidade());
+        assertThat(entity.getLocalidade().getLougradouro()).isEqualTo(entitySaved.getLocalidade().getLougradouro());
+        assertThat(entity.getLocalidade().getCidade()).isEqualTo(entitySaved.getLocalidade().getCidade());
+        assertThat(entity.getLocalidade().getEstado()).isEqualTo(entitySaved.getLocalidade().getEstado());
+        assertThat(entity.getLocalidade().getNumero()).isEqualTo(entitySaved.getLocalidade().getNumero());
+        assertThat(entity.getFuncionamento().getHoraInicial()).isEqualTo(
                 entitySaved.getFuncionamento().getHoraInicial());
-        assertThat(jpaEntity.getFuncionamento().getHoraFinal()).isEqualTo(entitySaved.getFuncionamento().
-                getHoraFinal());
-        assertThat(jpaEntity.getFuncionamento().getDiasDaSemana()).isEqualTo(entitySaved.getFuncionamento().
-                getDiasDaSemana());
-        assertThat(jpaEntity.getTipoDeCozinha()).isEqualTo(entitySaved.getTipoDeCozinha());
+        assertThat(entity.getFuncionamento().getHoraFinal()).isEqualTo(entitySaved.getFuncionamento().getHoraFinal());
+        assertThat(entity.getFuncionamento().getDiasDaSemana()).isEqualTo(
+                entitySaved.getFuncionamento().getDiasDaSemana());
+        assertThat(entity.getTipoDeCozinha()).isEqualTo(entitySaved.getTipoDeCozinha());
 
         //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
 //        verify(repository, times(1)).save(jpaEntity);

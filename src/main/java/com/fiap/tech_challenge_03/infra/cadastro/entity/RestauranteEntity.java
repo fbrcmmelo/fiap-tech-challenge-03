@@ -12,8 +12,8 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
-import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @NoArgsConstructor
 @Data
@@ -45,7 +45,7 @@ public class RestauranteEntity {
         this.horaInicial = restaurante.getFuncionamento().getHoraInicial();
         this.horaFinal = restaurante.getFuncionamento().getHoraFinal();
         this.diasDaSemana = restaurante.getFuncionamento().getDiasDaSemana().stream().map(String::valueOf).collect(
-                Collectors.joining());
+                Collectors.joining(","));
         this.capacidade = restaurante.getCapacidade();
         this.tipoDeCozinha = restaurante.getTipoDeCozinha();
     }
@@ -63,7 +63,8 @@ public class RestauranteEntity {
     public Restaurante toRestaurante() {
         return new Restaurante(this.nome, new Localidade(this.numero, this.lougradouro,
                 this.cidade, this.estado),
-                new Fucionamento(this.horaInicial, this.horaFinal, Set.of()),
+                new Fucionamento(this.horaInicial, this.horaFinal,
+                        Stream.of(diasDaSemana.split(",")).map(Integer::parseInt).collect(Collectors.toSet())),
                 this.capacidade, this.tipoDeCozinha);
     }
 
