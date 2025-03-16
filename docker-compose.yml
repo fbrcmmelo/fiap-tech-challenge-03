@@ -1,0 +1,15 @@
+version: '1.0'
+
+services:
+  app-chef-reserv:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - app_data:/var/app
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  app_data:

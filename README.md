@@ -15,7 +15,17 @@ Api para gerenciar reservas de restaurantes.
 
 # Swagger
 
-- link
+- local: http://localhost:8080/swagger-ui/index.html
+
+# Docker
+
+-start
+
+- > docker-compose up -d
+
+-stop
+
+- > docker-compose down
 
 # Application Test
 
