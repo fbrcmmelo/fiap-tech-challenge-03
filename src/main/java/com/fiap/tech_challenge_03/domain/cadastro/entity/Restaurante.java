@@ -1,9 +1,9 @@
 package com.fiap.tech_challenge_03.domain.cadastro.entity;
 
+import com.fiap.tech_challenge_03.domain.DomainException;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Fucionamento;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Localidade;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.NomeRestaurante;
-import com.fiap.tech_challenge_03.infra.exception.DomainException;
 import lombok.Getter;
 
 import java.util.Objects;

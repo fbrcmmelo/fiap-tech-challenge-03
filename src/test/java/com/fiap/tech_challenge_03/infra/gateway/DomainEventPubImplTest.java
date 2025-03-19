@@ -16,7 +16,7 @@ class DomainEventPubImplTest {
     private ApplicationEventPublisher applicationEventPublisher;
 
     @InjectMocks
-    private DomainEventPubImpl domainEventPub;
+    private DomainEventPubGatewayImpl domainEventPub;
 
     @Captor
     private ArgumentCaptor<Object> eventCaptor;

@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2025-03-16T18:51:07.754Z",
+        "start_timestamp": "2025-03-19T01:09:09.479Z",
         "line": 3,
         "name": "Cadastrar um novo restaurante",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1105984308,
+              "duration": 1053952225,
               "status": "passed"
             },
             "line": 4,
@@ -25,7 +25,7 @@
           },
           {
             "result": {
-              "duration": 473122621,
+              "duration": 382352579,
               "status": "passed"
             },
             "line": 5,
@@ -38,7 +38,7 @@
         ]
       },
       {
-        "start_timestamp": "2025-03-16T18:51:09.348Z",
+        "start_timestamp": "2025-03-19T01:09:10.928Z",
         "line": 7,
         "name": "Busca de restaurantes",
         "description": "",
@@ -48,7 +48,7 @@
         "steps": [
           {
             "result": {
-              "duration": 33737709,
+              "duration": 20652506,
               "status": "passed"
             },
             "line": 8,
@@ -60,7 +60,7 @@
           },
           {
             "result": {
-              "duration": 26955073,
+              "duration": 21551840,
               "status": "passed"
             },
             "line": 9,
@@ -72,7 +72,7 @@
           },
           {
             "result": {
-              "duration": 47254265,
+              "duration": 34718784,
               "status": "passed"
             },
             "line": 10,
@@ -84,7 +84,7 @@
           },
           {
             "result": {
-              "duration": 12311921,
+              "duration": 10212312,
               "status": "passed"
             },
             "line": 11,

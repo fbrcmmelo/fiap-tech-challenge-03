@@ -1,7 +1,7 @@
 package com.fiap.tech_challenge_03.domain.cadastro.usecase;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.CadastrarRestauranteInput;
-import com.fiap.tech_challenge_03.application.cadastro.dto.output.RestauranteOutput;
+import com.fiap.tech_challenge_03.application.cadastro.input.CadastrarRestauranteInput;
+import com.fiap.tech_challenge_03.application.cadastro.output.RestauranteOutput;
 import com.fiap.tech_challenge_03.application.cadastro.usecase.ICadastrarRestauranteUseCase;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
 import com.fiap.tech_challenge_03.domain.cadastro.service.RestauranteDomainService;

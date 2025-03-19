@@ -1,7 +1,7 @@
 package com.fiap.tech_challenge_03.domain.cadastro.usecase;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.BuscarRestauranteInput;
-import com.fiap.tech_challenge_03.infra.exception.DomainException;
+import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteInput;
+import com.fiap.tech_challenge_03.domain.DomainException;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class BuscarRestaurantesUseCaseIT {
 
     @Autowired
-    private BuscarRestaurantesUseCase buscarRestaurantesUseCase;
+    private BuscarRestaurantesComParametrosUseCase buscarRestaurantesUseCase;
 
     @Test
     void deveExecutarCasoDeUsoBuscarRestaurantes() {

@@ -1,8 +1,8 @@
 package com.fiap.tech_challenge_03.domain.cadastro.usecase;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.BuscarRestauranteInput;
+import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteInput;
+import com.fiap.tech_challenge_03.domain.DomainException;
 import com.fiap.tech_challenge_03.domain.cadastro.service.RestauranteDomainService;
-import com.fiap.tech_challenge_03.infra.exception.DomainException;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +24,7 @@ class BuscarRestaurantesUseCaseTest {
     private RestauranteDomainService restauranteDomainService;
 
     @InjectMocks
-    private BuscarRestaurantesUseCase buscarRestaurantesUseCase;
+    private BuscarRestaurantesComParametrosUseCase buscarRestaurantesUseCase;
 
     private AutoCloseable openMocks;
 

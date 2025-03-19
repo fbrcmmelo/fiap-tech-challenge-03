@@ -1,7 +1,7 @@
 package com.fiap.tech_challenge_03.infra.cadastro.api;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.BuscarRestauranteInput;
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.CadastrarRestauranteInput;
+import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteInput;
+import com.fiap.tech_challenge_03.application.cadastro.input.CadastrarRestauranteInput;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;

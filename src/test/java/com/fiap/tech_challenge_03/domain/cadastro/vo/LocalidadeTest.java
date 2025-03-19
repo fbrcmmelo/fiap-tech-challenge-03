@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.vo;
 
-import com.fiap.tech_challenge_03.infra.exception.DomainException;
+import com.fiap.tech_challenge_03.domain.DomainException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

@@ -1,9 +1,8 @@
 package com.fiap.tech_challenge_03.infra.cadastro.api;
 
-import com.fiap.tech_challenge_03.application.cadastro.usecase.IBuscarRestaurantesUseCase;
+import com.fiap.tech_challenge_03.application.cadastro.usecase.IBuscarRestaurantesComParametrosUseCase;
 import com.fiap.tech_challenge_03.application.cadastro.usecase.ICadastrarRestauranteUseCase;
 import com.fiap.tech_challenge_03.infra.adapter.Presenter;
-import com.fiap.tech_challenge_03.infra.cadastro.adapter.RestauranteMapper;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +27,7 @@ class RestauranteControllerTest {
     @Mock
     private ICadastrarRestauranteUseCase cadastrarUseCase;
     @Mock
-    private IBuscarRestaurantesUseCase buscarRestaurantesUseCase;
+    private IBuscarRestaurantesComParametrosUseCase buscarRestaurantesUseCase;
 
     private MockMvc mockMvc;
     private AutoCloseable openMocks;

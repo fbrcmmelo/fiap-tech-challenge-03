@@ -1,7 +1,7 @@
 package com.fiap.tech_challenge_03.infra.config;
 
-import com.fiap.tech_challenge_03.infra.exception.ApplicationException;
-import com.fiap.tech_challenge_03.infra.exception.DomainException;
+import com.fiap.tech_challenge_03.application.ApplicationException;
+import com.fiap.tech_challenge_03.domain.DomainException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
