@@ -1,7 +1,7 @@
-package com.fiap.tech_challenge_03.application.cadastro.dto.output;
+package com.fiap.tech_challenge_03.application.reserva.output;
 
-import com.fiap.tech_challenge_03.application.cadastro.enums.StatusReserva;
-import com.fiap.tech_challenge_03.domain.cadastro.entity.Reserva;
+import com.fiap.tech_challenge_03.application.reserva.enums.StatusReserva;
+import com.fiap.tech_challenge_03.domain.reserva.entity.Reserva;
 
 import java.time.LocalDateTime;
 

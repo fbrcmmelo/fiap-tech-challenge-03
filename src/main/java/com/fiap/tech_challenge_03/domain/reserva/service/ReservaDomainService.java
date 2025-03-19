@@ -1,8 +1,8 @@
-package com.fiap.tech_challenge_03.domain.cadastro.service;
+package com.fiap.tech_challenge_03.domain.reserva.service;
 
-import com.fiap.tech_challenge_03.domain.cadastro.entity.Reserva;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
-import com.fiap.tech_challenge_03.domain.cadastro.gateway.IReservaGateway;
+import com.fiap.tech_challenge_03.domain.reserva.entity.Reserva;
+import com.fiap.tech_challenge_03.domain.reserva.gateway.IReservaGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
     @RequiredArgsConstructor
-public class ReserveDomainService {
+public class ReservaDomainService {
 
     private final IReservaGateway reservaGateway;
 
@@ -19,7 +19,7 @@ public class ReserveDomainService {
         return reservaGateway.cadastrar(reserva);
     }
 
-    public List<Reserva> buscarReservasPorHorario(Restaurante restaurante, LocalDateTime data) {
-        return reservaGateway.buscarReservasPorHorario(restaurante, data);
+    public List<Reserva> buscarReservasPorHorario(Long restauranteId, LocalDateTime data) {
+        return reservaGateway.buscarReservasPorHorario(restauranteId, data);
     }
 }

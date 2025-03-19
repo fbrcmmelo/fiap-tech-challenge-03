@@ -1,10 +1,12 @@
-package com.fiap.tech_challenge_03.domain.cadastro.entity;
+package com.fiap.tech_challenge_03.domain.reserva.entity;
 
-import com.fiap.tech_challenge_03.application.cadastro.enums.StatusReserva;
-import com.fiap.tech_challenge_03.infra.exception.DomainException;
+import com.fiap.tech_challenge_03.application.reserva.enums.StatusReserva;
+import com.fiap.tech_challenge_03.domain.DomainException;
+import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
+import com.fiap.tech_challenge_03.domain.cadastro.entity.Usuario;
 import lombok.Getter;
-import java.time.LocalDateTime;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 
@@ -19,12 +21,12 @@ import java.util.Objects;
 public class Reserva {
 
     private String id;
-    private Usuario usuario;
-    private Restaurante restaurante;
-    private LocalDateTime data;
-    private Integer numeroPessoas;
+    private final Usuario usuario;
+    private final Restaurante restaurante;
+    private final LocalDateTime data;
+    private final Integer numeroPessoas;
     private StatusReserva status;
-    private LocalDateTime createdAt;
+    private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public Reserva(Usuario usuario, Restaurante restaurante, LocalDateTime data,

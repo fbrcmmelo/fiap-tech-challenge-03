@@ -1,5 +1,7 @@
 package com.fiap.tech_challenge_03.domain.cadastro.entity;
 
+import com.fiap.tech_challenge_03.domain.reserva.entity.Reserva;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +31,7 @@ public class Usuario {
         this.updatedAt = this.createdAt;
     }
 
-
-
-
+    public Long getId() {
+        return Long.parseLong(id);
+    }
 }
