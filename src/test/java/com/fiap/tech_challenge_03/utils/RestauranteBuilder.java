@@ -1,13 +1,13 @@
 package com.fiap.tech_challenge_03.utils;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.RestauranteDTO;
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.BuscarRestauranteInput;
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.CadastrarRestauranteInput;
-import com.fiap.tech_challenge_03.application.cadastro.dto.output.RestauranteOutput;
+import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteInput;
+import com.fiap.tech_challenge_03.application.cadastro.input.CadastrarRestauranteInput;
+import com.fiap.tech_challenge_03.application.cadastro.output.RestauranteOutput;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Fucionamento;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Localidade;
-import com.fiap.tech_challenge_03.infra.cadastro.entity.RestauranteEntity;
+import com.fiap.tech_challenge_03.infra.cadastro.api.dto.RestauranteDTO;
+import com.fiap.tech_challenge_03.infra.cadastro.entity.RestauranteJpaEntity;
 
 import java.util.Set;
 
@@ -43,8 +43,8 @@ public class RestauranteBuilder {
                 .build();
     }
 
-    public static RestauranteEntity jpaEntity() {
-        return new RestauranteEntity(entity());
+    public static RestauranteJpaEntity jpaEntity() {
+        return new RestauranteJpaEntity(entity());
     }
 
     public static BuscarRestauranteInput buscarComParametrosInput() {

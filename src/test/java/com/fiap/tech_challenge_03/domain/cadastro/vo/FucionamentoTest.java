@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.vo;
 
-import com.fiap.tech_challenge_03.infra.exception.DomainException;
+import com.fiap.tech_challenge_03.domain.DomainException;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -33,7 +33,8 @@ class FucionamentoTest {
     @Test
     void deveLancarExcecaoQuandoPassarInvalidHoraInicialFormat() {
         // Act & Assert
-        assertThatThrownBy(() -> new Fucionamento("08:00AM", "22:00", new HashSet<>()))
+        HashSet<Integer> diasDaSemana = new HashSet<>();
+        assertThatThrownBy(() -> new Fucionamento("08:00AM", "22:00", diasDaSemana))
                 .isInstanceOf(DomainException.class)
                 .hasMessage("Horarios de funcionamentos inválidos");
     }
@@ -41,7 +42,8 @@ class FucionamentoTest {
     @Test
     void deveLancarExcecaoQuandoPassarInvalidHoraFinalFormat() {
         // Act & Assert
-        assertThatThrownBy(() -> new Fucionamento("08:00", "10:60", new HashSet<>()))
+        HashSet<Integer> diasDaSemana = new HashSet<>();
+        assertThatThrownBy(() -> new Fucionamento("08:00", "10:60", diasDaSemana))
                 .isInstanceOf(DomainException.class)
                 .hasMessage("Horarios de funcionamentos inválidos");
     }

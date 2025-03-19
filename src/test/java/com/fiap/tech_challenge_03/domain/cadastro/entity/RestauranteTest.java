@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.entity;
 
-import com.fiap.tech_challenge_03.infra.exception.DomainException;
+import com.fiap.tech_challenge_03.domain.DomainException;
 import com.fiap.tech_challenge_03.utils.ValueObjectBuilder;
 import org.junit.jupiter.api.Test;
 

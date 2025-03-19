@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.bdd;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.RestauranteDTO;
+import com.fiap.tech_challenge_03.infra.cadastro.api.dto.RestauranteDTO;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.event;
 
-import com.fiap.tech_challenge_03.infra.interfaces.IDomainEvent;
+import com.fiap.tech_challenge_03.domain.IDomainEvent;
 import lombok.Getter;
 
 @Getter

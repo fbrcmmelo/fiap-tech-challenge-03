@@ -1,10 +1,10 @@
 package com.fiap.tech_challenge_03.domain.cadastro.service;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.BuscarRestauranteInput;
+import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteInput;
+import com.fiap.tech_challenge_03.domain.IDomainEventPubGateway;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
 import com.fiap.tech_challenge_03.domain.cadastro.event.EventoRestauranteCadastrado;
 import com.fiap.tech_challenge_03.domain.cadastro.gateway.IRestauranteGateway;
-import com.fiap.tech_challenge_03.infra.interfaces.IDomainEventPub;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +26,7 @@ class RestauranteDomainServiceTest {
     private IRestauranteGateway gateway;
 
     @Mock
-    private IDomainEventPub eventPub;
+    private IDomainEventPubGateway eventPub;
 
     @InjectMocks
     private RestauranteDomainService restauranteDomainService;

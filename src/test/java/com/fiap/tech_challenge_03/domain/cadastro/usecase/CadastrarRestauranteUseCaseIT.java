@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.usecase;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.output.RestauranteOutput;
+import com.fiap.tech_challenge_03.application.cadastro.output.RestauranteOutput;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

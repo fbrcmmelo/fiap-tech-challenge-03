@@ -1,6 +1,6 @@
 package com.fiap.tech_challenge_03.domain.cadastro.service;
 
-import com.fiap.tech_challenge_03.application.cadastro.dto.input.BuscarRestauranteInput;
+import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteInput;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.Test;
