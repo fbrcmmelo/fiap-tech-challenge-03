@@ -9,31 +9,29 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-
-@Getter
-
 /*
  *  Entidade -> Núcleo do domínio
  *  Deve validar sua integridade ao ser criada
  *
  * */
 
+@Getter
 public class Reserva {
 
     private String id;
-    private final Usuario usuario;
-    private final Restaurante restaurante;
+    private final String usuarioId; // Agora recebe apenas o ID do usuário
+    private final String restauranteId; // Agora recebe apenas o ID do restaurante
     private final LocalDateTime data;
     private final Integer numeroPessoas;
     private StatusReserva status;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Reserva(Usuario usuario, Restaurante restaurante, LocalDateTime data,
+    public Reserva(String usuarioId, String restauranteId, LocalDateTime data,
                    Integer numeroPessoas, StatusReserva status) {
 
-        Objects.requireNonNull(usuario, "Usuário não pode ser nulo");
-        Objects.requireNonNull(restaurante, "Restaurante não pode ser nulo");
+        Objects.requireNonNull(usuarioId, "Usuário ID não pode ser nulo");
+        Objects.requireNonNull(restauranteId, "Restaurante ID não pode ser nulo");
         Objects.requireNonNull(data, "Data da reserva não pode ser nula");
         Objects.requireNonNull(numeroPessoas, "Número de pessoas não pode ser nulo");
         Objects.requireNonNull(status, "Status da reserva não pode ser nulo");
@@ -46,8 +44,8 @@ public class Reserva {
             throw new DomainException("Data da reserva não pode ser no passado");
         }
 
-        this.usuario = usuario;
-        this.restaurante = restaurante;
+        this.usuarioId = usuarioId;
+        this.restauranteId = restauranteId;
         this.data = data;
         this.numeroPessoas = numeroPessoas;
         this.status = status;

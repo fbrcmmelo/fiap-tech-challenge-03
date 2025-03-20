@@ -22,4 +22,5 @@ public class ReservaDomainService {
     public List<Reserva> buscarReservasPorHorario(Long restauranteId, LocalDateTime data) {
         return reservaGateway.buscarReservasPorHorario(restauranteId, data);
     }
+
 }

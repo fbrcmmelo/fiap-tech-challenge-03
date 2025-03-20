@@ -31,6 +31,9 @@ public class Usuario {
         this.updatedAt = this.createdAt;
     }
 
+    public Usuario(String id, String nome) {
+    }
+
     public Long getId() {
         return Long.parseLong(id);
     }
