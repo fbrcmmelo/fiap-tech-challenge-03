@@ -33,7 +33,7 @@ public class RealizarAvaliacaoUseCase implements IRealizarAvaliacaoUseCase {
         }
 
         final var avaliacaoRealizada = this.service.realizar(
-                new Avaliacao(input.nota(), input.comentario(), avaliador, restaurante.get()));
+                new Avaliacao(input.nota(), input.comentario(), avaliador.get(), restaurante.get()));
 
         return AvaliacaoOutput.from(avaliacaoRealizada);
     }

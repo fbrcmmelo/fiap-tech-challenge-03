@@ -2,6 +2,7 @@ package com.fiap.tech_challenge_03.infra.avaliacao.entity;
 
 import com.fiap.tech_challenge_03.domain.avaliacao.entity.Avaliacao;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
+import com.fiap.tech_challenge_03.domain.cadastro.entity.Usuario;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -19,7 +20,8 @@ public class AvaliacaoEntity {
     private String id;
     private Integer nota;
     private String comentario;
-    private Object avaliador;
+    @DBRef
+    private Usuario avaliador;
     @DBRef
     private Restaurante restaurante;
 

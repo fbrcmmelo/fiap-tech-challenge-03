@@ -13,8 +13,8 @@ public class Nota {
     public Nota(Integer valorNota) {
         Objects.requireNonNull(valorNota, "Nota não pode ser nula");
 
-        if (valorNota > 5 || valorNota < 0) {
-            throw new DomainException("Valor da nota inválida");
+        if (valorNota > 5 || valorNota <= 0) {
+            throw new DomainException("Valor da nota inválida. Nota dever ser de 0 a 5");
         }
 
         this.valorNota = valorNota;

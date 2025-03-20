@@ -82,4 +82,8 @@ class RestauranteGatewayImplTest {
                 .isNotNull()
                 .isEmpty();
     }
+
+    @Test
+    void buscarPorId() {
+    }
 }
