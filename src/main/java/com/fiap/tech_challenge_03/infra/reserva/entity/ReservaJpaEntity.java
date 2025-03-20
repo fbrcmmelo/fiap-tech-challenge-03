@@ -29,8 +29,8 @@ public class ReservaJpaEntity {
         Objects.requireNonNull(reserva);
 
         this.id = reserva.getId();
-        this.restauranteId = reserva.getRestaurante().getId();
-        this.usuarioId = String.valueOf(reserva.getUsuario().getId());
+        this.restauranteId = reserva.getId();
+        this.usuarioId = String.valueOf(reserva.getUsuarioId());
         this.data = reserva.getData();
         this.numeroPessoas = reserva.getNumeroPessoas();
         this.status = reserva.getStatus().name();

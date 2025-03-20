@@ -12,9 +12,10 @@ import java.time.LocalDateTime;
 public class ReservaDTO {
 
     private String id;
-    private RestauranteDTO restaurante;
-    private UsuarioDTO usuario;
+    private Long restauranteId; // Alterado para armazenar apenas o ID
+    private Long usuarioId; // Alterado para armazenar apenas o ID
     private LocalDateTime data;
     private int numeroPessoas;
     private String status;
 }
+

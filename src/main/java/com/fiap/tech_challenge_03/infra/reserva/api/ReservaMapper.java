@@ -9,9 +9,12 @@ public class ReservaMapper {
     public static ReservaDTO dtoFrom(ReservaOutput output) {
         return ReservaDTO.builder()
                 .id(output.id())
-                .usuario(output.usuario())
+                .restauranteId(output.restauranteId()) // Apenas ID
+                .usuarioId(output.usuarioId()) // Apenas ID
+                .data(output.data())
                 .numeroPessoas(output.numeroPessoas())
+                .status(output.status().toString())
                 .build();
-
     }
 }
+
