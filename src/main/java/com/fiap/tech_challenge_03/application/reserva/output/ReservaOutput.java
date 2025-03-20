@@ -16,8 +16,8 @@ public record ReservaOutput(
     public static ReservaOutput from(Reserva reserva) {
         return new ReservaOutput(
                 reserva.getId(),
-                reserva.getUsuario().getId(),
-                reserva.getRestaurante().getId(),
+                Long.parseLong(reserva.getUsuarioId()),
+                Long.parseLong(reserva.getRestauranteId()),
                 reserva.getData(),
                 reserva.getNumeroPessoas(),
                 reserva.getStatus()
