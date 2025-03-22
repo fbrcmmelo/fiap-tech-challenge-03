@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class EventoAvaliacaoRealizadaTest {
 
     @Test
-    void testConstructorAndGetters() {
+    void deveCriarEventoAvaliacaoRealizada() {
         // Arrange
         String avaliacaoId = "12345";
         String restauranteId = "54321";
@@ -21,7 +21,7 @@ class EventoAvaliacaoRealizadaTest {
     }
 
     @Test
-    void testToString() {
+    void deveVoltarMensagemAvaliacaoRealizada() {
         // Arrange
         String avaliacaoId = "12345";
         String restauranteId = "54321";

@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 class AvaliacaoTest {
 
     @Test
-    void testConstructor_NullNota_ShouldThrowNullPointerException() {
+    void testConstructor_NullNota_DeveLancarNullPointerException() {
         // Arrange
         Usuario avaliador = UsuarioBuilder.entity();
         Restaurante restaurante = RestauranteBuilder.entity();
@@ -24,7 +24,7 @@ class AvaliacaoTest {
     }
 
     @Test
-    void testConstructor_NullAvaliador_ShouldThrowNullPointerException() {
+    void testConstructor_NullAvaliador_DeveLancarNullPointerException() {
         // Arrange
         Restaurante restaurante = RestauranteBuilder.entity();
 
@@ -35,7 +35,7 @@ class AvaliacaoTest {
     }
 
     @Test
-    void testConstructor_NullRestaurante_ShouldThrowNullPointerException() {
+    void testConstructor_NullRestaurante_DeveLancarNullPointerException() {
         // Arrange
         Usuario avaliador = UsuarioBuilder.entity();
 
@@ -46,7 +46,7 @@ class AvaliacaoTest {
     }
 
     @Test
-    void testConstructor_ValidParameters_ShouldSetFieldsCorrectly() {
+    void deveCriarAvaliacaoCorretamente() {
         // Arrange
         Integer validNota = 4;
         String comentario = "Gostei!";

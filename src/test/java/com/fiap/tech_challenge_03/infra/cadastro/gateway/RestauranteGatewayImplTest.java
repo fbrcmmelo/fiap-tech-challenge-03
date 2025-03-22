@@ -5,6 +5,7 @@ import com.fiap.tech_challenge_03.infra.cadastro.repository.RestauranteMongoRepo
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -33,57 +34,59 @@ class RestauranteGatewayImplTest {
         this.openMocks.close();
     }
 
-    @Test
-    void deveCadastrarRestauranteNoRepositorio() {
-        // Arrange
-        final var entity = RestauranteBuilder.entity();
+    @Nested
+    class ResgistroRestaurante {
 
-        //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
-//        when(repository.save(jpaEntity)).thenReturn(jpaEntity);
+        @Test
+        void deveCadastrarRestauranteNoRepositorio() {
+            // Arrange
+            final var entity = RestauranteBuilder.entity();
 
-        // Act
-        final var entitySaved = this.gateway.cadastrar(entity);
+            //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
+            //        when(repository.save(jpaEntity)).thenReturn(jpaEntity);
 
-        // Assert
-        assertThat(entitySaved)
-                .isInstanceOf(Restaurante.class)
-                .isNotNull();
-        assertThat(entity.getId()).isEqualTo(entitySaved.getId());
-        assertThat(entity.getNome().nome()).isEqualTo(entitySaved.getNome().nome());
-        assertThat(entity.getCapacidade()).isEqualTo(entitySaved.getCapacidade());
-        assertThat(entity.getLocalidade().getLougradouro()).isEqualTo(entitySaved.getLocalidade().getLougradouro());
-        assertThat(entity.getLocalidade().getCidade()).isEqualTo(entitySaved.getLocalidade().getCidade());
-        assertThat(entity.getLocalidade().getEstado()).isEqualTo(entitySaved.getLocalidade().getEstado());
-        assertThat(entity.getLocalidade().getNumero()).isEqualTo(entitySaved.getLocalidade().getNumero());
-        assertThat(entity.getFuncionamento().getHoraInicial()).isEqualTo(
-                entitySaved.getFuncionamento().getHoraInicial());
-        assertThat(entity.getFuncionamento().getHoraFinal()).isEqualTo(entitySaved.getFuncionamento().getHoraFinal());
-        assertThat(entity.getFuncionamento().getDiasDaSemana()).isEqualTo(
-                entitySaved.getFuncionamento().getDiasDaSemana());
-        assertThat(entity.getTipoDeCozinha()).isEqualTo(entitySaved.getTipoDeCozinha());
+            // Act
+            final var entitySaved = gateway.cadastrar(entity);
 
-        //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
-//        verify(repository, times(1)).save(jpaEntity);
+            // Assert
+            assertThat(entitySaved).isInstanceOf(Restaurante.class).isNotNull();
+            assertThat(entity.getId()).isEqualTo(entitySaved.getId());
+            assertThat(entity.getNome().nome()).isEqualTo(entitySaved.getNome().nome());
+            assertThat(entity.getCapacidade()).isEqualTo(entitySaved.getCapacidade());
+            assertThat(entity.getLocalidade().getLougradouro()).isEqualTo(entitySaved.getLocalidade().getLougradouro());
+            assertThat(entity.getLocalidade().getCidade()).isEqualTo(entitySaved.getLocalidade().getCidade());
+            assertThat(entity.getLocalidade().getEstado()).isEqualTo(entitySaved.getLocalidade().getEstado());
+            assertThat(entity.getLocalidade().getNumero()).isEqualTo(entitySaved.getLocalidade().getNumero());
+            assertThat(entity.getFuncionamento().getHoraInicial()).isEqualTo(
+                    entitySaved.getFuncionamento().getHoraInicial());
+            assertThat(entity.getFuncionamento().getHoraFinal()).isEqualTo(
+                    entitySaved.getFuncionamento().getHoraFinal());
+            assertThat(entity.getFuncionamento().getDiasDaSemana()).isEqualTo(
+                    entitySaved.getFuncionamento().getDiasDaSemana());
+            assertThat(entity.getTipoDeCozinha()).isEqualTo(entitySaved.getTipoDeCozinha());
+
+            //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
+            //        verify(repository, times(1)).save(jpaEntity);
+        }
     }
 
-    @Test
-    void deveBuscarRestaurantesEquivalantesPesquisa() {
-        // Arrange
-        final var input = RestauranteBuilder.buscarComParametrosInput();
-        final var entity = RestauranteBuilder.entity();
+    @Nested
+    class BuscaRestaurante {
 
-        //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
-//        when(repository.findAll(any(Example.class))).thenReturn(Collections.singletonList(entity));
+        @Test
+        void deveBuscarRestaurantesEquivalantesPesquisa() {
+            // Arrange
+            final var input = RestauranteBuilder.buscarComParametrosInput();
+            final var entity = RestauranteBuilder.entity();
 
-        // Act
-        final var restaurantes = this.gateway.buscarComParametros(input);
+            //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
+            //        when(repository.findAll(any(Example.class))).thenReturn(Collections.singletonList(entity));
 
-        assertThat(restaurantes)
-                .isNotNull()
-                .isEmpty();
-    }
+            // Act
+            final var restaurantes = gateway.buscarComParametros(input);
 
-    @Test
-    void buscarPorId() {
+            assertThat(restaurantes).isNotNull().isEmpty();
+        }
+
     }
 }

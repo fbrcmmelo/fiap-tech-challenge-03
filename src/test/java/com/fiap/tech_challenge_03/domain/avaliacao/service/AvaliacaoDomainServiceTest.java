@@ -31,7 +31,7 @@ class AvaliacaoDomainServiceTest {
     }
 
     @Test
-    void testRealizar() {
+    void deveCadastrarAvaliacaoEEnviarEnventoAvaliacaoRealizada() {
         // Arrange
         final var avaliacao = AvaliacaoBuilder.entity();
         when(gateway.cadastrar(avaliacao)).thenReturn(avaliacao);

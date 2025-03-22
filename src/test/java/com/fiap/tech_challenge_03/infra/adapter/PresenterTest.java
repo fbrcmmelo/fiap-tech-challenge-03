@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class PresenterTest {
 
     @Test
-    void testJsonFrom_ValidObject_ShouldReturnJsonString() {
+    void deveRetornarStringDoObjeto() {
         // Arrange
         SampleResponse response = new SampleResponse("Test", 123); // Assuming a class for testing
 
@@ -25,7 +25,7 @@ class PresenterTest {
     }
 
     @Test
-    void testJsonFrom_InvalidObject_ShouldThrowApplicationException()
+    void deveLancarApplicationExceptionQuandoErroAoDesearelizarObjetoParaString()
             throws JsonProcessingException {
         // Arrange
         ObjectMapper mockObjectMapper = Mockito.spy(new ObjectMapper());

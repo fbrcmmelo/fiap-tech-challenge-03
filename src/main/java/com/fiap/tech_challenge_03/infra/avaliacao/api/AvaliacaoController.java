@@ -6,6 +6,7 @@ import com.fiap.tech_challenge_03.infra.adapter.Presenter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class AvaliacaoController implements AvaliacaoOpenApi {
 
     @Override
     @PostMapping
-    public ResponseEntity<String> realizar(RealizarAvaliacaoInput input) {
+    public ResponseEntity<String> realizar(@RequestBody RealizarAvaliacaoInput input) {
         final var output = this.useCase.execute(input);
         final var dto = AvaliacaoMapper.dtoFrom(output);
 

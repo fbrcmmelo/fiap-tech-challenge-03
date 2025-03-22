@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest
 class AvaliacaoGatewayImplIT {
 
@@ -26,15 +28,14 @@ class AvaliacaoGatewayImplIT {
 
     @Test
     void deveCadastrarAvaliacao() {
-//        // Act
-//        Avaliacao result = avaliacaoGateway.cadastrar(avaliacao);
-//
-//        // Assert
-//        assertThat(result).isNotNull();
-//        assertThat(result.getNota()).isEqualTo(avaliacao.getNota());
-//        assertThat(result.getComentario()).isEqualTo(avaliacao.getComentario());
-//
-//        // Optionally, check that the entity was saved in the database
-//        assertThat(repository.findById(result.getId())).isPresent(); // Assuming Avaliacao has a getId method
+        // Act
+        //TODO: cadastrar restaurante e avaliador para gerar uma avaliacao
+        Avaliacao result = avaliacaoGateway.cadastrar(avaliacao);
+
+        // Assert
+        assertThat(result).isNotNull();
+        assertThat(result.getNota()).isEqualTo(avaliacao.getNota());
+        assertThat(result.getComentario()).isEqualTo(avaliacao.getComentario());
+        assertThat(repository.findById(result.getId())).isPresent();
     }
 }

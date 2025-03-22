@@ -25,7 +25,7 @@ class AvaliacaoMapperTest {
     }
 
     @Test
-    void testDtoFrom() {
+    void deveConverParaDTO() {
         // Arrange
         when(avaliacaoOutputMock.id()).thenReturn("1L");
         when(avaliacaoOutputMock.nota()).thenReturn(5);

@@ -40,7 +40,7 @@ class BuscarRestaurantesUseCaseTest {
     }
 
     @Test
-    void execute() {
+    void deveExecutarCasoDeUsoBuscarRestaurantesComParametros() {
         // Arrange
         final var input = RestauranteBuilder.buscarComParametrosInput();
         final var entity = RestauranteBuilder.entity();
