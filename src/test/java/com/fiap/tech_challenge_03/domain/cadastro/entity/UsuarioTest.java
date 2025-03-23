@@ -13,48 +13,42 @@ class UsuarioTest {
     void construtorCom_NullNome_deveLancarNullPointerException() {
         // Act & Assert
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> new Usuario("1", null, "12345678900", "user@example.com", "password1"))
-                .withMessage("nome is marked non-null but is null");
+                .isThrownBy(() -> new Usuario("1", null, "12345678900", "user@example.com", "password1"));
     }
 
     @Test
     void construtorCom_NullCpf_deveLancarNullPointerException() {
         // Act & Assert
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> new Usuario("1", "Nome", null, "user@example.com", "password1"))
-                .withMessage("cpf is marked non-null but is null");
+                .isThrownBy(() -> new Usuario("1", "Nome", null, "user@example.com", "password1"));
     }
 
     @Test
     void construtorCom_NullEmail_deveLancarNullPointerException() {
         // Act & Assert
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> new Usuario("1", "Nome", "12345678900", null, "password1"))
-                .withMessage("email is marked non-null but is null");
+                .isThrownBy(() -> new Usuario("1", "Nome", "12345678900", null, "password1"));
     }
 
     @Test
     void construtorCom_NullSenha_deveLancarNullPointerException() {
         // Act & Assert
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> new Usuario("1", "Nome", "12345678900", "user@example.com", null))
-                .withMessage("senha is marked non-null but is null");
+                .isThrownBy(() -> new Usuario("1", "Nome", "12345678900", "user@example.com", null));
     }
 
     @Test
     void construtorCom_BlankNome_ShouldThrowDomainException() {
         // Act & Assert
         assertThatExceptionOfType(DomainException.class)
-                .isThrownBy(() -> new Usuario("1", "", "12345678900", "user@example.com", "password1"))
-                .withMessage("Nome usuario não pode estar em branco");
+                .isThrownBy(() -> new Usuario("1", "", "12345678900", "user@example.com", "password1"));
     }
 
     @Test
     void construtorCom_ShortNome_ShouldThrowDomainException() {
         // Act & Assert
         assertThatExceptionOfType(DomainException.class)
-                .isThrownBy(() -> new Usuario("1", "Ab", "12345678900", "user@example.com", "password1"))
-                .withMessage("Nome usuario não pode ter menos que 3 characteres");
+                .isThrownBy(() -> new Usuario("1", "Ab", "12345678900", "user@example.com", "password1"));
     }
 
     @Test

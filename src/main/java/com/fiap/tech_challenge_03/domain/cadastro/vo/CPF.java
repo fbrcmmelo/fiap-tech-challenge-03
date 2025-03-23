@@ -12,7 +12,7 @@ public class CPF {
     public CPF(String cpfCnpj) {
         Objects.requireNonNull(cpfCnpj, "Cpf/Cnpj nao pode ser nulo");
 
-        String avaliador = cpfCnpj.replace("\\.", "")
+        String avaliador = cpfCnpj.replace(".", "")
                 .replace("-", "")
                 .replace("/", "");
 
@@ -24,7 +24,7 @@ public class CPF {
     }
 
     public String getCpfCnpjSemFormatacao() {
-        return this.cpfCnpj.replace("\\.", "")
+        return this.cpfCnpj.replace(".", "")
                 .replace("-", "")
                 .replace("/", "");
     }
