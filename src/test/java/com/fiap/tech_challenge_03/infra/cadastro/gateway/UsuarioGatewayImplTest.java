@@ -3,6 +3,7 @@ package com.fiap.tech_challenge_03.infra.cadastro.gateway;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Usuario;
 import com.fiap.tech_challenge_03.infra.cadastro.entity.UsuarioJpaEntity;
 import com.fiap.tech_challenge_03.infra.cadastro.repository.UsuarioMongoRepository;
+import com.fiap.tech_challenge_03.utils.UsuarioBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,9 +29,8 @@ class UsuarioGatewayImplTest {
 
     @BeforeEach
     void setUp() {
-        usuarioJpaEntity = new UsuarioJpaEntity();
+        usuarioJpaEntity = new UsuarioJpaEntity(UsuarioBuilder.entity());
         usuarioJpaEntity.setId(userId);
-        // Set other properties of usuarioJpaEntity as needed
     }
 
     @Test
@@ -50,5 +51,25 @@ class UsuarioGatewayImplTest {
         Optional<Usuario> usuario = usuarioGateway.buscarPorId(userId);
 
         assertThat(usuario).isNotPresent();
+    }
+
+    @Test
+    void deveCadastrarUsuario() {
+        // Arrange
+        final var entity = UsuarioBuilder.entity();
+
+        when(this.repository.save(any(UsuarioJpaEntity.class))).thenReturn(new UsuarioJpaEntity(entity));
+
+        // Act
+        final var entitySaved = this.usuarioGateway.cadastrar(entity);
+
+        // Assert
+        assertThat(entitySaved)
+                .isNotNull()
+                .isInstanceOf(Usuario.class);
+        assertThat(entitySaved.getId())
+                .isNotNull();
+        assertThat(entitySaved.getNome())
+                .isEqualTo(entity.getNome());
     }
 }

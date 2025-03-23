@@ -16,11 +16,12 @@ public class Avaliacao {
     private Usuario avaliador;
     private Restaurante restaurante;
 
-    public Avaliacao(Integer nota, String comentario, Usuario avaliador, Restaurante restaurante) {
+    public Avaliacao(String id, Integer nota, String comentario, Usuario avaliador, Restaurante restaurante) {
         Objects.requireNonNull(nota, "Nota não pode ser nula");
         Objects.requireNonNull(avaliador, "Avaliador não pode ser nulo");
         Objects.requireNonNull(restaurante, "Restaurante não pode ser nulo");
 
+        this.id = id;
         this.nota = new Nota(nota);
         this.avaliador = avaliador;
         this.restaurante = restaurante;

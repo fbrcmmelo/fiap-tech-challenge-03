@@ -55,8 +55,8 @@ class CadastrarRestauranteUseCaseTest {
         assertThat(output.id()).isEqualTo(outputMocked.id());
         assertThat(output.nome()).isEqualTo(outputMocked.nome());
         assertThat(output.capacidade()).isEqualTo(outputMocked.capacidade());
-        assertThat(output.cidade()).isEqualTo(outputMocked.cidade());
-        assertThat(output.estado()).isEqualTo(outputMocked.estado());
+        assertThat(output.localidade()).isEqualTo(outputMocked.localidade());
+        assertThat(output.funcionamento()).isEqualTo(outputMocked.funcionamento());
         assertThat(output.tipoDeCozinha()).isEqualTo(outputMocked.tipoDeCozinha());
 
         verify(restauranteDomainService, times(1)).cadastrar(any(Restaurante.class));

@@ -19,7 +19,7 @@ class AvaliacaoTest {
 
         // Act & Assert
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> new Avaliacao(null, "Bom lugar!", avaliador, restaurante))
+                .isThrownBy(() -> new Avaliacao(null, null, "Bom lugar!", avaliador, restaurante))
                 .withMessage("Nota não pode ser nula");
     }
 
@@ -30,7 +30,7 @@ class AvaliacaoTest {
 
         // Act & Assert
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> new Avaliacao(4, "Bom lugar!", null, restaurante))
+                .isThrownBy(() -> new Avaliacao(null, 4, "Bom lugar!", null, restaurante))
                 .withMessage("Avaliador não pode ser nulo");
     }
 
@@ -41,7 +41,7 @@ class AvaliacaoTest {
 
         // Act & Assert
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> new Avaliacao(4, "Bom lugar!", avaliador, null))
+                .isThrownBy(() -> new Avaliacao(null, 4, "Bom lugar!", avaliador, null))
                 .withMessage("Restaurante não pode ser nulo");
     }
 
@@ -54,7 +54,7 @@ class AvaliacaoTest {
         Restaurante restaurante = RestauranteBuilder.entity();
 
         // Act
-        Avaliacao avaliacao = new Avaliacao(validNota, comentario, avaliador, restaurante);
+        Avaliacao avaliacao = new Avaliacao(null, validNota, comentario, avaliador, restaurante);
 
         // Assert
         assertThat(avaliacao.getNota()).isNotNull();

@@ -13,6 +13,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class PresenterTest {
 
     @Test
+    void deveLancarException_QuandoTentarInstanciar_ClassePresenter() {
+        assertThatThrownBy(Presenter::new)
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage("Utility class");
+    }
+
+    @Test
     void deveRetornarStringDoObjeto() {
         // Arrange
         SampleResponse response = new SampleResponse("Test", 123); // Assuming a class for testing

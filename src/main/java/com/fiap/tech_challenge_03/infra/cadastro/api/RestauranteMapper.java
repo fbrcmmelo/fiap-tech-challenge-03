@@ -9,7 +9,9 @@ public class RestauranteMapper {
         return RestauranteDTO.builder()
                 .id(output.id())
                 .nome(output.nome())
+                .tipoDeCozinha(output.tipoDeCozinha())
+                .funcionamento(output.funcionamento())
+                .localidade(output.localidade())
                 .build();
-
     }
 }

@@ -9,3 +9,7 @@ Feature: API - Cadastros
     When submeter uma busca com parâmetros
     And os parâmetros serem equivalentes à algum restaurante
     Then os restaurantes encontrados serão exibidos
+
+  Scenario: Cadastrar um novo usuario
+    When submeter um novo usuario
+    Then o usuario é cadastrado com sucesso

@@ -14,6 +14,11 @@ public class UsuarioGatewayImpl implements IUsuarioGateway {
     private final UsuarioMongoRepository repository;
 
     @Override
+    public Usuario cadastrar(Usuario usuario) {
+        return this.repository.save(new UsuarioJpaEntity(usuario)).toUsuario();
+    }
+
+    @Override
     public Optional<Usuario> buscarPorId(String id) {
         return this.repository.findById(id).map(UsuarioJpaEntity::toUsuario);
     }

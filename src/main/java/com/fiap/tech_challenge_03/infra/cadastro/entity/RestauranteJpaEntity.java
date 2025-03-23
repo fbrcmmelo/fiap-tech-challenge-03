@@ -2,7 +2,7 @@ package com.fiap.tech_challenge_03.infra.cadastro.entity;
 
 import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteInput;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
-import com.fiap.tech_challenge_03.domain.cadastro.vo.Fucionamento;
+import com.fiap.tech_challenge_03.domain.cadastro.vo.Funcionamento;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Localidade;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -61,9 +61,9 @@ public class RestauranteJpaEntity {
     }
 
     public Restaurante toRestaurante() {
-        return new Restaurante(this.nome, new Localidade(this.numero, this.lougradouro,
+        return new Restaurante(this.id, this.nome, new Localidade(this.numero, this.lougradouro,
                 this.cidade, this.estado),
-                new Fucionamento(this.horaInicial, this.horaFinal,
+                new Funcionamento(this.horaInicial, this.horaFinal,
                         Stream.of(diasDaSemana.split(",")).map(Integer::parseInt).collect(Collectors.toSet())),
                 this.capacidade, this.tipoDeCozinha);
     }

@@ -5,9 +5,11 @@ import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ActiveProfiles("test")
 @SpringBootTest
 class CadastrarRestauranteUseCaseIT {
 
@@ -28,8 +30,8 @@ class CadastrarRestauranteUseCaseIT {
                 .isNotNull();
         assertThat(input.nome()).isEqualTo(output.nome());
         assertThat(input.capacidade()).isEqualTo(output.capacidade());
-        assertThat(input.cidade()).isEqualTo(output.cidade());
-        assertThat(input.estado()).isEqualTo(output.estado());
+        assertThat(input.cidade()).isEqualTo(output.localidade().getCidade());
+        assertThat(input.estado()).isEqualTo(output.localidade().getEstado());
         assertThat(input.tipoDeCozinha()).isEqualTo(output.tipoDeCozinha());
     }
 }

@@ -6,10 +6,11 @@ import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@ActiveProfiles("test")
 @SpringBootTest
 class RestauranteDomainServiceIT {
 
@@ -33,19 +34,22 @@ class RestauranteDomainServiceIT {
     @Test
     void deveBuscarRestaurantesComParametrosDeBuscaEquivalente() {
         // Arrange
-        var entity = RestauranteBuilder.entity();
-        final var nomeECidade = new BuscarRestauranteInput(entity.getNome().nome(), entity.getLocalidade().getCidade(),
-                null, null, null);
+        final var restaurante = RestauranteBuilder.entity();
+        final var restauranteParaPesquisa = this.restauranteDomainService.cadastrar(restaurante);
+        final var parametros = BuscarRestauranteInput.builder()
+                .nome(restauranteParaPesquisa.getNome().nome())
+                .build();
 
         // Act
-        final var restaurantes = restauranteDomainService.buscarComParametros(nomeECidade);
+        final var restaurantes = restauranteDomainService.buscarComParametros(parametros);
 
         // Assert
-        assertNotNull(restaurantes);
-        assertThat(restaurantes).isEmpty();
-//        assertEquals(1, restaurantes.size());
-//        assertEquals(nomeECidade.nome(), restaurantes.iterator().next().getNome().nome());
-//        assertEquals(nomeECidade.cidade(), restaurantes.iterator().next().getLocalidade().getCidade());
-        //TODO: Ajustar asserts apos integracao
+        assertThat(restaurantes)
+                .isNotNull()
+                .hasAtLeastOneElementOfType(Restaurante.class)
+                .anySatisfy(r -> {
+                    assertThat(r.getNome().nome())
+                            .isEqualTo(parametros.nome());
+                });
     }
 }

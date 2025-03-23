@@ -1,13 +1,16 @@
 package com.fiap.tech_challenge_03.infra.cadastro.gateway;
 
-import com.fiap.tech_challenge_03.infra.cadastro.entity.UsuarioJpaEntity;
+import com.fiap.tech_challenge_03.domain.cadastro.entity.Usuario;
 import com.fiap.tech_challenge_03.infra.cadastro.repository.UsuarioMongoRepository;
+import com.fiap.tech_challenge_03.utils.UsuarioBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ActiveProfiles("test")
 @SpringBootTest
 class UsuarioGatewayImplIT {
 
@@ -18,19 +21,37 @@ class UsuarioGatewayImplIT {
     private UsuarioGatewayImpl usuarioGateway;
 
     @Test
-    void deveBuscarUsuarioPorIdEEcontrarUmUsuario() {
+    void deveCadastrarUsuario() {
         // Arrange
-        final var usuarioJpaEntity = new UsuarioJpaEntity();
-        usuarioJpaEntity.setId("123");
-
-        repository.save(usuarioJpaEntity);
+        final var entity = UsuarioBuilder.entity();
 
         // Act
-        final var usuarioOptional = usuarioGateway.buscarPorId("123");
+        final var entitySaved = this.usuarioGateway.cadastrar(entity);
 
         // Assert
-        assertThat(usuarioOptional).isPresent();
-        assertThat(usuarioOptional.get().getId()).isEqualTo("123");
+        assertThat(entitySaved)
+                .isNotNull()
+                .isInstanceOf(Usuario.class);
+        assertThat(entitySaved.getId())
+                .isNotNull();
+        assertThat(entitySaved.getNome())
+                .isEqualTo(entity.getNome());
+    }
+
+    @Test
+    void deveBuscarUsuarioPorIdEEcontrarUmUsuario() {
+        // Arrange
+        final var usuario = UsuarioBuilder.entity();
+        final var usuarioJpaEntity = this.usuarioGateway.cadastrar(usuario);
+
+        // Act
+        final var usuarioOptional = usuarioGateway.buscarPorId(usuarioJpaEntity.getId());
+
+        // Assert
+        assertThat(usuarioOptional)
+                .isPresent();
+        assertThat(usuarioOptional.get().getId())
+                .isEqualTo(usuarioJpaEntity.getId());
     }
 
     @Test
@@ -41,4 +62,5 @@ class UsuarioGatewayImplIT {
         // Assert
         assertThat(usuarioOptional).isNotPresent();
     }
+
 }

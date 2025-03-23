@@ -28,12 +28,12 @@ public class RealizarAvaliacaoUseCase implements IRealizarAvaliacaoUseCase {
         }
         final var avaliador = this.usuarioGateway.buscarPorId(input.usuarioId());
         if (avaliador.isEmpty()) {
-            throw new DomainException("Usuario avaliador de id ".concat(input.restauranteId()).concat(" " +
+            throw new DomainException("Usuario avaliador de id ".concat(input.usuarioId()).concat(" " +
                     "não encontrado para avaliação"));
         }
 
         final var avaliacaoRealizada = this.service.realizar(
-                new Avaliacao(input.nota(), input.comentario(), avaliador.get(), restaurante.get()));
+                new Avaliacao(null, input.nota(), input.comentario(), avaliador.get(), restaurante.get()));
 
         return AvaliacaoOutput.from(avaliacaoRealizada);
     }

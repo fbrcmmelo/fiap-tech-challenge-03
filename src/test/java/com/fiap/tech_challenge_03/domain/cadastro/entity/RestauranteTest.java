@@ -17,7 +17,7 @@ class RestauranteTest {
         var funcionamento = ValueObjectBuilder.getFuncionamento();
 
         // Act: Create a Restaurante object with valid parameters
-        var restaurante = new Restaurante("Restaurante Teste", localidade, funcionamento, 100, "Italiana");
+        var restaurante = new Restaurante(null, "Restaurante Teste", localidade, funcionamento, 100, "Italiana");
 
         // Assert: Ensure the object is created correctly
         assertThat(restaurante).isNotNull();
@@ -35,11 +35,11 @@ class RestauranteTest {
         var funcionamento = ValueObjectBuilder.getFuncionamento();
 
         // Act & Assert
-        assertThatThrownBy(() -> new Restaurante("Restaurante Teste", localidade, funcionamento, 0, "Italiana"))
+        assertThatThrownBy(() -> new Restaurante("1", "Restaurante Teste", localidade, funcionamento, 0, "Italiana"))
                 .isInstanceOf(DomainException.class)
                 .hasMessage("Capacidade do restaurante não pode ser menor que 1");
 
-        assertThatThrownBy(() -> new Restaurante("Restaurante Teste", localidade, funcionamento, -1, "Italiana"))
+        assertThatThrownBy(() -> new Restaurante(null, "Restaurante Teste", localidade, funcionamento, -1, "Italiana"))
                 .isInstanceOf(DomainException.class)
                 .hasMessage("Capacidade do restaurante não pode ser menor que 1");
     }
@@ -53,7 +53,7 @@ class RestauranteTest {
 
         // Act & Assert
         assertThrows(DomainException.class,
-                () -> new Restaurante("Restaurante Teste", localidade, funcionamento, 100, emptyTipoDeCozinha));
+                () -> new Restaurante(null, "Restaurante Teste", localidade, funcionamento, 100, emptyTipoDeCozinha));
     }
 
 }

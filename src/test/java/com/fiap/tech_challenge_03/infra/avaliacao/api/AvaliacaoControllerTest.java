@@ -2,6 +2,8 @@ package com.fiap.tech_challenge_03.infra.avaliacao.api;
 
 import com.fiap.tech_challenge_03.application.avaliacao.input.RealizarAvaliacaoInput;
 import com.fiap.tech_challenge_03.domain.avaliacao.usecase.RealizarAvaliacaoUseCase;
+import com.fiap.tech_challenge_03.domain.cadastro.usecase.CadastrarRestauranteUseCase;
+import com.fiap.tech_challenge_03.domain.cadastro.usecase.CadastrarUsuarioUseCase;
 import com.fiap.tech_challenge_03.infra.adapter.Presenter;
 import com.fiap.tech_challenge_03.utils.AvaliacaoBuilder;
 import org.junit.jupiter.api.AfterEach;
@@ -22,7 +24,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class AvaliacaoControllerTest {
 
     @Mock
-    private RealizarAvaliacaoUseCase useCase;
+    private RealizarAvaliacaoUseCase realizarAvaliacaoUseCase;
+    @Mock
+    private CadastrarUsuarioUseCase cadastrarUsuarioUseCase;
+    @Mock
+    private CadastrarRestauranteUseCase cadastrarRestauranteUseCase;
 
     @InjectMocks
     private AvaliacaoController avaliacaoController;
@@ -49,7 +55,7 @@ class AvaliacaoControllerTest {
         final var output = AvaliacaoBuilder.output();
         final var dto = AvaliacaoMapper.dtoFrom(output);
 
-        when(useCase.execute(any(RealizarAvaliacaoInput.class))).thenReturn(output);
+        when(realizarAvaliacaoUseCase.execute(any(RealizarAvaliacaoInput.class))).thenReturn(output);
 
         // Act and Assert
         mockMvc.perform(post("/avaliacoes")

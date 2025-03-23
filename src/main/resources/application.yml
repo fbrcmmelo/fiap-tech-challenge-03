@@ -3,9 +3,17 @@ spring:
     name: tech-challenge-03
   profiles:
     active: ${PROFILE:default}
+  data:
+    mongodb:
+      host: localhost
+      port: 27019
+      username: root
+      password: rootpass
+      database: app-database
+      authentication-database: admin
+
 server:
   port: 8080
-
 logging:
   level:
     root: INFO

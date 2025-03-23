@@ -1,7 +1,7 @@
-version: '1.0'
-
 services:
   app-chef-reserv:
+    container_name: app
+    image: app-chef-reserv
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,6 +10,29 @@ services:
     restart: always
     ports:
       - 8080:8080
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest  # Imagem oficial do MongoDB
+    container_name: mongo-container
+    ports:
+      - "27019:27017"  # Mapeia a porta 27019 do host para a porta 27017 do container
+    volumes:
+      - mongo-data:/data/db  # Volume para persistir os dados do banco de dados
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root  # Defina o nome de usuário root
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass  # Defina a senha para o usuário root
+    networks:
+      - app-network
 
 volumes:
   app_data:
+  mongo-data:
+
+networks:
+  app-network:

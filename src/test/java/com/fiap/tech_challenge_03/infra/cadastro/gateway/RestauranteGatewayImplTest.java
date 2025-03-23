@@ -1,6 +1,7 @@
 package com.fiap.tech_challenge_03.infra.cadastro.gateway;
 
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
+import com.fiap.tech_challenge_03.infra.cadastro.entity.RestauranteJpaEntity;
 import com.fiap.tech_challenge_03.infra.cadastro.repository.RestauranteMongoRepository;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.AfterEach;
@@ -10,8 +11,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Example;
+
+import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 class RestauranteGatewayImplTest {
 
@@ -41,9 +47,7 @@ class RestauranteGatewayImplTest {
         void deveCadastrarRestauranteNoRepositorio() {
             // Arrange
             final var entity = RestauranteBuilder.entity();
-
-            //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
-            //        when(repository.save(jpaEntity)).thenReturn(jpaEntity);
+            when(repository.save(any(RestauranteJpaEntity.class))).thenReturn(RestauranteBuilder.jpaEntity());
 
             // Act
             final var entitySaved = gateway.cadastrar(entity);
@@ -65,8 +69,7 @@ class RestauranteGatewayImplTest {
                     entitySaved.getFuncionamento().getDiasDaSemana());
             assertThat(entity.getTipoDeCozinha()).isEqualTo(entitySaved.getTipoDeCozinha());
 
-            //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
-            //        verify(repository, times(1)).save(jpaEntity);
+            verify(repository, times(1)).save(any(RestauranteJpaEntity.class));
         }
     }
 
@@ -74,19 +77,25 @@ class RestauranteGatewayImplTest {
     class BuscaRestaurante {
 
         @Test
-        void deveBuscarRestaurantesEquivalantesPesquisa() {
+        void deveBuscarRestaurantesEquivalentesPesquisa() {
             // Arrange
             final var input = RestauranteBuilder.buscarComParametrosInput();
             final var entity = RestauranteBuilder.entity();
 
-            //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
-            //        when(repository.findAll(any(Example.class))).thenReturn(Collections.singletonList(entity));
+            RestauranteJpaEntity jpaEntity = new RestauranteJpaEntity(entity);
+            when(repository.findAll(any(Example.class))).thenReturn(Collections.singletonList(jpaEntity));
 
             // Act
             final var restaurantes = gateway.buscarComParametros(input);
 
-            assertThat(restaurantes).isNotNull().isEmpty();
+            assertThat(restaurantes)
+                    .isNotNull()
+                    .hasAtLeastOneElementOfType(Restaurante.class)
+                    .hasSize(1);
+            assertThat(restaurantes.iterator().next().getId())
+                    .isEqualTo(jpaEntity.getId());
+            assertThat(restaurantes.iterator().next().getNome().nome())
+                    .isEqualTo(jpaEntity.getNome());
         }
-
     }
 }

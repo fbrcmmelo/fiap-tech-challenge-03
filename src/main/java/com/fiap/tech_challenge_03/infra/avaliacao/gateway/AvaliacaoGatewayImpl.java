@@ -13,7 +13,6 @@ public class AvaliacaoGatewayImpl implements IAvaliacaoGateway {
 
     @Override
     public Avaliacao cadastrar(Avaliacao avaliacao) {
-        final var entityMongoSaved = this.repository.save(new AvaliacaoEntity(avaliacao));
-        return entityMongoSaved.toAvaliacao();
+        return this.repository.save(new AvaliacaoEntity(avaliacao)).toAvaliacao();
     }
 }
