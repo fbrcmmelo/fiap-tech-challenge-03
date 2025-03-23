@@ -15,7 +15,7 @@ public class AvaliacaoBuilder {
     }
 
     public static RealizarAvaliacaoInput realizarAvaliacaoInput() {
-        return new RealizarAvaliacaoInput(1, "1", "1", "1");
+        return new RealizarAvaliacaoInput(1, "1", " ", "1");
     }
 
     public static AvaliacaoOutput output() {
