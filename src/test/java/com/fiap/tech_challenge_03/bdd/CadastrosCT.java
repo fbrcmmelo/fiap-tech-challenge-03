@@ -2,6 +2,7 @@ package com.fiap.tech_challenge_03.bdd;
 
 import com.fiap.tech_challenge_03.infra.cadastro.api.dto.RestauranteDTO;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
+import com.fiap.tech_challenge_03.utils.UsuarioBuilder;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CadastrosCT {
 
-    private static final String ENDPOINT = "http://localhost:8080/restaurantes";
+    private static final String ENDPOINT = "http://localhost:8080";
     private Response response;
     private RestauranteDTO restauranteCadastrado;
 
@@ -25,7 +26,7 @@ public class CadastrosCT {
                 .contentType("application/json")
                 .body(input)
                 .when()
-                .post(ENDPOINT);
+                .post(ENDPOINT.concat("/restaurantes"));
         return response.then().extract().as(RestauranteDTO.class);
     }
 
@@ -51,7 +52,7 @@ public class CadastrosCT {
                 .contentType("application/json")
                 .body(input)
                 .when()
-                .post(ENDPOINT.concat("/buscar"));
+                .post(ENDPOINT.concat("/restaurantes/buscar"));
     }
 
     @And("os parâmetros serem equivalentes à algum restaurante")
@@ -66,8 +67,28 @@ public class CadastrosCT {
     public void exibirRestaurantesEcontrados() {
         response.then()
                 .statusCode(200)
-                .body("results", Matchers.hasSize(0));
-        //TODO: ajustar resultados experados apos integracoes
-        // espera receber uma lista com registros
+                .body("size()", Matchers.greaterThan(0));
+    }
+
+    @When("submeter um novo usuario")
+    public void submeterNovoUsuario() {
+        final var input = UsuarioBuilder.cadastroInput();
+        response = given()
+                .contentType("application/json")
+                .body(input)
+                .when()
+                .post(ENDPOINT.concat("/usuarios"));
+    }
+
+    @Then("o usuario é cadastrado com sucesso")
+    public void usuarioCadastradoComSucesso() {
+        final var input = UsuarioBuilder.cadastroInput();
+        response.then()
+                .statusCode(201)
+                .body("$", Matchers.hasKey("id"))
+                .body("$", Matchers.hasKey("nome"))
+                .body("$", Matchers.hasKey("email"))
+                .body("nome", Matchers.equalTo(input.nome()))
+                .body("email", Matchers.equalTo(input.email()));
     }
 }
