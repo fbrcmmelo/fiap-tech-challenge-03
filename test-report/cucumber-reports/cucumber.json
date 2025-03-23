@@ -3,7 +3,77 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2025-03-19T01:09:09.479Z",
+        "start_timestamp": "2025-03-23T06:04:17.291Z",
+        "line": 3,
+        "name": "Cadastrar uma nova avaliação",
+        "description": "",
+        "id": "api---avaliacoes;cadastrar-uma-nova-avaliação",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 79113058,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "que eu tenha um restaurante cadastrado",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.AvaliacaoCT.temRestauranteCadastrado()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 67370877,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "um usuario cadastrado",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.AvaliacaoCT.temUsuarioCadastrado()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 44438146,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "o usuario submeter uma nova avaliação ao restaurante",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.AvaliacaoCT.submeterNovaAvaliacao()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 83820396,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "a avaliação é cadastrada com sucesso",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.AvaliacaoCT.avaliacaoCadastradaComSucesso()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "API - Avaliacoes",
+    "description": "",
+    "id": "api---avaliacoes",
+    "keyword": "Feature",
+    "uri": "classpath:features/Avaliacoes.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2025-03-23T06:04:17.592Z",
         "line": 3,
         "name": "Cadastrar um novo restaurante",
         "description": "",
@@ -13,7 +83,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1053952225,
+              "duration": 49207155,
               "status": "passed"
             },
             "line": 4,
@@ -25,7 +95,7 @@
           },
           {
             "result": {
-              "duration": 382352579,
+              "duration": 25216966,
               "status": "passed"
             },
             "line": 5,
@@ -38,7 +108,7 @@
         ]
       },
       {
-        "start_timestamp": "2025-03-19T01:09:10.928Z",
+        "start_timestamp": "2025-03-23T06:04:17.675Z",
         "line": 7,
         "name": "Busca de restaurantes",
         "description": "",
@@ -48,7 +118,7 @@
         "steps": [
           {
             "result": {
-              "duration": 20652506,
+              "duration": 48606856,
               "status": "passed"
             },
             "line": 8,
@@ -60,7 +130,7 @@
           },
           {
             "result": {
-              "duration": 21551840,
+              "duration": 84993632,
               "status": "passed"
             },
             "line": 9,
@@ -72,7 +142,7 @@
           },
           {
             "result": {
-              "duration": 34718784,
+              "duration": 248584,
               "status": "passed"
             },
             "line": 10,
@@ -84,13 +154,48 @@
           },
           {
             "result": {
-              "duration": 10212312,
+              "duration": 57269780,
               "status": "passed"
             },
             "line": 11,
             "name": "os restaurantes encontrados serão exibidos",
             "match": {
               "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.exibirRestaurantesEcontrados()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-03-23T06:04:17.874Z",
+        "line": 13,
+        "name": "Cadastrar um novo usuario",
+        "description": "",
+        "id": "api---cadastros;cadastrar-um-novo-usuario",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 28758667,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "submeter um novo usuario",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.submeterNovoUsuario()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 33194971,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "o usuario é cadastrado com sucesso",
+            "match": {
+              "location": "com.fiap.tech_challenge_03.bdd.CadastrosCT.usuarioCadastradoComSucesso()"
             },
             "keyword": "Then "
           }

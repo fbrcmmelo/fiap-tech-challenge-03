@@ -6,6 +6,10 @@ import com.fiap.tech_challenge_03.application.ApplicationException;
 
 public class Presenter {
 
+    Presenter() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static String jsonFrom(Object response) {
         try {
             return new ObjectMapper().writeValueAsString(response);

@@ -10,6 +10,6 @@ public interface IRestauranteGateway {
 
     Restaurante cadastrar(Restaurante restaurante);
     List<Restaurante> buscarComParametros(BuscarRestauranteInput input);
-
     Optional<Restaurante> buscarPorId(String id);
+
 }

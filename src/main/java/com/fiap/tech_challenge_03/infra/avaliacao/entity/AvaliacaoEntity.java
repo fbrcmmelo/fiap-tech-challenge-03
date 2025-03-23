@@ -1,7 +1,8 @@
 package com.fiap.tech_challenge_03.infra.avaliacao.entity;
 
 import com.fiap.tech_challenge_03.domain.avaliacao.entity.Avaliacao;
-import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
+import com.fiap.tech_challenge_03.infra.cadastro.entity.RestauranteJpaEntity;
+import com.fiap.tech_challenge_03.infra.cadastro.entity.UsuarioJpaEntity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -19,9 +20,10 @@ public class AvaliacaoEntity {
     private String id;
     private Integer nota;
     private String comentario;
-    private Object avaliador;
     @DBRef
-    private Restaurante restaurante;
+    private UsuarioJpaEntity avaliador;
+    @DBRef
+    private RestauranteJpaEntity restaurante;
 
     public AvaliacaoEntity(Avaliacao avaliacao) {
         Objects.requireNonNull(avaliacao);
@@ -29,12 +31,14 @@ public class AvaliacaoEntity {
         this.id = avaliacao.getId();
         this.nota = avaliacao.getNota().getValorNota();
         this.comentario = avaliacao.getComentario();
-        this.avaliador = avaliacao.getAvaliador();
-        this.restaurante = avaliacao.getRestaurante();
+        this.avaliador = new UsuarioJpaEntity(avaliacao.getAvaliador());
+        this.restaurante = new RestauranteJpaEntity(avaliacao.getRestaurante());
     }
 
     public Avaliacao toAvaliacao() {
-        return new Avaliacao(this.nota, this.comentario, this.avaliador, this.restaurante);
+        return new Avaliacao(this.id, this.nota, this.comentario, this.avaliador.toUsuario(),
+                this.restaurante.toRestaurante()
+        );
     }
 
 }

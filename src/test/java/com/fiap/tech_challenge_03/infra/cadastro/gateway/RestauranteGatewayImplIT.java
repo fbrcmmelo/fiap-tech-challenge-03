@@ -1,13 +1,16 @@
 package com.fiap.tech_challenge_03.infra.cadastro.gateway;
 
+import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteInput;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
 import com.fiap.tech_challenge_03.utils.RestauranteBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ActiveProfiles("test")
 @SpringBootTest
 class RestauranteGatewayImplIT {
 
@@ -43,17 +46,17 @@ class RestauranteGatewayImplIT {
     @Test
     void deveBuscarRestaurantesEquivalantesPesquisa() {
         // Arrange
-        final var input = RestauranteBuilder.buscarComParametrosInput();
-        final var entity = RestauranteBuilder.entity();
-
-        //TODO : ajustar com mapeamento das collections ja criadas pelo Gabriel
-//        when(repository.findAll(any(Example.class))).thenReturn(Collections.singletonList(entity));
+        final var restauranteCadastrado = this.gateway.cadastrar(RestauranteBuilder.entity());
+        final var input = BuscarRestauranteInput.builder()
+                .nome(restauranteCadastrado.getNome().nome())
+                .build();
 
         // Act
         final var restaurantes = this.gateway.buscarComParametros(input);
 
         assertThat(restaurantes)
                 .isNotNull()
-                .isEmpty();
+                .hasAtLeastOneElementOfType(Restaurante.class);
     }
+
 }

@@ -6,10 +6,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 
-@Tag(name = "Cadastros")
+@Tag(name = "Reservas")
 public interface ReservaOpenApi {
 
-    @Operation(summary = "Cadastrar uma Reserva", responses = @ApiResponse())
+    @Operation(summary = "Cadastrar uma resera", responses = @ApiResponse())
     ResponseEntity<String> cadastrar(CadastrarReservaInput request);
 
 }

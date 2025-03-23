@@ -4,7 +4,7 @@ import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteIn
 import com.fiap.tech_challenge_03.application.cadastro.input.CadastrarRestauranteInput;
 import com.fiap.tech_challenge_03.application.cadastro.output.RestauranteOutput;
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
-import com.fiap.tech_challenge_03.domain.cadastro.vo.Fucionamento;
+import com.fiap.tech_challenge_03.domain.cadastro.vo.Funcionamento;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Localidade;
 import com.fiap.tech_challenge_03.infra.cadastro.api.dto.RestauranteDTO;
 import com.fiap.tech_challenge_03.infra.cadastro.entity.RestauranteJpaEntity;
@@ -19,9 +19,10 @@ public class RestauranteBuilder {
 
     public static Restaurante entity() {
         return new Restaurante(
+                "1",
                 "Restaurante Teste",
                 new Localidade(123, "logradouro", "Cidade Teste", "Estado Teste"),
-                new Fucionamento("08:00", "22:00", Set.of(1, 2)),
+                new Funcionamento("08:00", "22:00", Set.of(1, 2)),
                 100,
                 "Italiana"
         );
@@ -33,7 +34,8 @@ public class RestauranteBuilder {
     }
 
     public static RestauranteOutput output() {
-        return new RestauranteOutput("id", "nome", "tipo de cozinha", "cidade", "estado", 123);
+        return new RestauranteOutput("id", "nome", "tipo de cozinha", ValueObjectBuilder.getLocalidade(),
+                ValueObjectBuilder.getFuncionamento(), 123);
     }
 
     public static RestauranteDTO dto() {

@@ -17,13 +17,13 @@ import java.util.Set;
  * */
 
 @Getter
-public class Fucionamento {
+public class Funcionamento {
 
     private String horaInicial;
     private String horaFinal;
     private Set<Integer> diasDaSemana;
 
-    public Fucionamento(String horaInicial, String horaFinal, Set<Integer> diasDaSemana) {
+    public Funcionamento(String horaInicial, String horaFinal, Set<Integer> diasDaSemana) {
         Objects.requireNonNull(horaInicial, "Hora inicial não pode estar null");
         Objects.requireNonNull(horaFinal, "Hora final não pode estar null");
         Objects.requireNonNull(diasDaSemana, "Dias da Semana não pode estar null");

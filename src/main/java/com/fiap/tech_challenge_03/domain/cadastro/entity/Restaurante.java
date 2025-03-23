@@ -1,7 +1,7 @@
 package com.fiap.tech_challenge_03.domain.cadastro.entity;
 
 import com.fiap.tech_challenge_03.domain.DomainException;
-import com.fiap.tech_challenge_03.domain.cadastro.vo.Fucionamento;
+import com.fiap.tech_challenge_03.domain.cadastro.vo.Funcionamento;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Localidade;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.NomeRestaurante;
 import lombok.Getter;
@@ -20,12 +20,12 @@ public class Restaurante {
     private String id;
     private NomeRestaurante nome;
     private Localidade localidade;
-    private Fucionamento funcionamento;
+    private Funcionamento funcionamento;
     private Integer capacidade;
     private String tipoDeCozinha;
 
-    public Restaurante(String nome, Localidade localidade,
-                       Fucionamento funcionamento, Integer capacidade, String tipoDeCozinha) {
+    public Restaurante(String id, String nome, Localidade localidade,
+                       Funcionamento funcionamento, Integer capacidade, String tipoDeCozinha) {
         Objects.requireNonNull(nome);
         Objects.requireNonNull(localidade);
         Objects.requireNonNull(funcionamento);
@@ -40,6 +40,7 @@ public class Restaurante {
             throw new DomainException("Tipo de cozinha do restaurante não pode estar em branco");
         }
 
+        this.id = id;
         this.nome = new NomeRestaurante(nome);
         this.localidade = localidade;
         this.funcionamento = funcionamento;

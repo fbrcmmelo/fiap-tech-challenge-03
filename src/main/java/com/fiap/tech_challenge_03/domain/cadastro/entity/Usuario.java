@@ -1,40 +1,39 @@
 package com.fiap.tech_challenge_03.domain.cadastro.entity;
 
-import com.fiap.tech_challenge_03.domain.reserva.entity.Reserva;
+import com.fiap.tech_challenge_03.domain.DomainException;
+import com.fiap.tech_challenge_03.domain.cadastro.vo.CPF;
+import com.fiap.tech_challenge_03.domain.cadastro.vo.Email;
+import lombok.Getter;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Objects;
 
+@Getter
 public class Usuario {
+
     private String id;
     private String nome;
-    private String email;
-    private String telefone;
-    private String accountId;
-//    private List<TokenJWT> jwtTokens;
-    private List<Reserva> reservas;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private Email email;
+    private String senha;
+    private CPF cpf;
 
-    public Usuario(String nome, String email, String telefone, String accountId) {
-        Objects.requireNonNull(nome, "Nome não pode ser nulo");
-        Objects.requireNonNull(email, "Email não pode ser nulo");
-        Objects.requireNonNull(telefone, "Telefone não pode ser nulo");
-        Objects.requireNonNull(accountId, "AccountId não pode ser nulo");
+    public Usuario(String id, String nome, String cpf, String email, String senha) {
+        Objects.requireNonNull(nome);
+        Objects.requireNonNull(cpf);
+        Objects.requireNonNull(email);
+        Objects.requireNonNull(senha);
 
+        if (nome.isBlank()) {
+            throw new DomainException("Nome usuario não pode estar em branco");
+        }
+
+        if (nome.trim().length() < 3) {
+            throw new DomainException("Nome usuario não pode ter menos que 3 characteres");
+        }
+
+        this.id = id;
         this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.accountId = accountId;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = this.createdAt;
-    }
-
-    public Usuario(String id, String nome) {
-    }
-
-    public Long getId() {
-        return Long.parseLong(id);
+        this.senha = senha;
+        this.email = new Email(email);
+        this.cpf = new CPF(cpf);
     }
 }
