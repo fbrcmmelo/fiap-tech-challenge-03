@@ -5,11 +5,7 @@ spring:
     active: ${PROFILE:default}
   data:
     mongodb:
-      host: mongo-container
-      username: root
-      password: rootpass
-      database: app-database
-      authentication-database: admin
+      uri: mongodb+srv://admin:${MONGODB_PASS}@my-cluster.jj29c.mongodb.net/techchallenge_03?retryWrites=true&w=majority
 
 server:
   port: 8080
