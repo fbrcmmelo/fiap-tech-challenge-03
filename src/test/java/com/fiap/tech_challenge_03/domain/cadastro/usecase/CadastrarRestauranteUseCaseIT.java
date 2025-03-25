@@ -40,7 +40,7 @@ class CadastrarRestauranteUseCaseIT {
                 .isInstanceOf(RestauranteOutput.class)
                 .isNotNull();
         assertThat(input.nome()).isEqualTo(output.nome());
-        assertThat(input.capacidade()).isEqualTo(output.capacidade());
+        assertThat(input.quantidadeDeMesas()).isEqualTo(output.quantidadeMesas());
         assertThat(input.cidade()).isEqualTo(output.localidade().getCidade());
         assertThat(input.estado()).isEqualTo(output.localidade().getEstado());
         assertThat(input.tipoDeCozinha()).isEqualTo(output.tipoDeCozinha());

@@ -30,7 +30,7 @@ class RestauranteGatewayImplIT {
                 .isInstanceOf(Restaurante.class)
                 .isNotNull();
         assertThat(entity.getNome()).isEqualTo(entitySaved.getNome());
-        assertThat(entity.getCapacidade()).isEqualTo(entitySaved.getCapacidade());
+        assertThat(entity.getQuantidadeMesas()).isEqualTo(entitySaved.getQuantidadeMesas());
         assertThat(entity.getLocalidade().getLougradouro()).isEqualTo(entitySaved.getLocalidade().getLougradouro());
         assertThat(entity.getLocalidade().getCidade()).isEqualTo(entitySaved.getLocalidade().getCidade());
         assertThat(entity.getLocalidade().getEstado()).isEqualTo(entitySaved.getLocalidade().getEstado());

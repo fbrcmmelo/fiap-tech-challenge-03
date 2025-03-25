@@ -13,5 +13,5 @@ public record CadastrarRestauranteInput(@Schema(example = "MyRestaurant") String
                                         @Schema(example = "09:00") String horaIniFuncionamento,
                                         @Schema(example = "15:00") String horaFimFuncionamento,
                                         @Schema(example = "[1,2,3,4]") Set<Integer> diasDaSemanaFunc,
-                                        @Schema(example = "50") Integer capacidade) {
+                                        @Schema(example = "50") Integer quantidadeDeMesas) {
 }

@@ -12,6 +12,7 @@ public class RestauranteMapper {
                 .tipoDeCozinha(output.tipoDeCozinha())
                 .funcionamento(output.funcionamento())
                 .localidade(output.localidade())
+                .mesas(output.mesas())
                 .build();
     }
 }

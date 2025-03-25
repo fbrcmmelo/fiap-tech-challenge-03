@@ -4,6 +4,7 @@ import com.fiap.tech_challenge_03.application.cadastro.input.BuscarRestauranteIn
 import com.fiap.tech_challenge_03.domain.cadastro.entity.Restaurante;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Funcionamento;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Localidade;
+import com.fiap.tech_challenge_03.domain.cadastro.vo.Mesa;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -30,8 +32,9 @@ public class RestauranteJpaEntity {
     private String horaInicial;
     private String horaFinal;
     private String diasDaSemana;
-    private Integer capacidade;
+    private Integer quantidadeMesas;
     private String tipoDeCozinha;
+    private List<Mesa> mesas;
 
     public RestauranteJpaEntity(Restaurante restaurante) {
         Objects.requireNonNull(restaurante);
@@ -46,8 +49,9 @@ public class RestauranteJpaEntity {
         this.horaFinal = restaurante.getFuncionamento().getHoraFinal();
         this.diasDaSemana = restaurante.getFuncionamento().getDiasDaSemana().stream().map(String::valueOf).collect(
                 Collectors.joining(","));
-        this.capacidade = restaurante.getCapacidade();
+        this.quantidadeMesas = restaurante.getQuantidadeMesas();
         this.tipoDeCozinha = restaurante.getTipoDeCozinha();
+        this.mesas = restaurante.getMesas();
     }
 
     public RestauranteJpaEntity(BuscarRestauranteInput input) {
@@ -65,11 +69,13 @@ public class RestauranteJpaEntity {
                 this.cidade, this.estado),
                 new Funcionamento(this.horaInicial, this.horaFinal,
                         Stream.of(diasDaSemana.split(",")).map(Integer::parseInt).collect(Collectors.toSet())),
-                this.capacidade, this.tipoDeCozinha);
+                this.quantidadeMesas,
+                this.tipoDeCozinha);
     }
 
     public Example<RestauranteJpaEntity> toExample() {
-        var matcher = ExampleMatcher.matching().withIgnoreNullValues()
+        var matcher = ExampleMatcher.matching()
+                .withIgnoreNullValues()
                 .withIgnoreCase()
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
 

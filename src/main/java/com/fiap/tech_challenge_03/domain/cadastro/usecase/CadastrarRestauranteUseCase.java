@@ -23,7 +23,7 @@ public class CadastrarRestauranteUseCase implements ICadastrarRestauranteUseCase
         final var funcionamento = new Funcionamento(input.horaIniFuncionamento(), input.horaFimFuncionamento(),
                 input.diasDaSemanaFunc());
         final var restaurante = this.service.cadastrar(new Restaurante(null, input.nome(), localidade, funcionamento,
-                input.capacidade(), input.tipoDeCozinha()));
+                input.quantidadeDeMesas(), input.tipoDeCozinha()));
 
         return RestauranteOutput.from(restaurante);
     }
