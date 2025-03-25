@@ -27,7 +27,7 @@ public class Reserva {
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Reserva(String usuarioId, String restauranteId, LocalDateTime data,
+    public Reserva(String id, String usuarioId, String restauranteId, LocalDateTime data,
                    Integer numeroPessoas, StatusReserva status) {
 
         Objects.requireNonNull(usuarioId, "Usuário ID não pode ser nulo");
@@ -44,6 +44,7 @@ public class Reserva {
             throw new DomainException("Data da reserva não pode ser no passado");
         }
 
+        this.id = id;
         this.usuarioId = usuarioId;
         this.restauranteId = restauranteId;
         this.data = data;
@@ -51,30 +52,6 @@ public class Reserva {
         this.status = status;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = this.createdAt;
-    }
-
-    public void cancelarReserva() {
-        if (status == StatusReserva.CANCELADA) {
-            throw new DomainException("Reserva já está cancelada");
-        }
-        this.status = StatusReserva.CANCELADA;
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    public void confirmarReserva() {
-        if (status == StatusReserva.CONFIRMADA) {
-            throw new DomainException("Reserva já está confirmada");
-        }
-        this.status = StatusReserva.CONFIRMADA;
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    public void pendenteReserva() {
-        if (status == StatusReserva.PENDENTE) {
-            throw new DomainException("Reserva já está pendente");
-        }
-        this.status = StatusReserva.PENDENTE;
-        this.updatedAt = LocalDateTime.now();
     }
 }
 

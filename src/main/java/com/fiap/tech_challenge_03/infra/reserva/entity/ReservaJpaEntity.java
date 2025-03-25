@@ -29,8 +29,8 @@ public class ReservaJpaEntity {
         Objects.requireNonNull(reserva);
 
         this.id = reserva.getId();
-        this.restauranteId = reserva.getId();
-        this.usuarioId = String.valueOf(reserva.getUsuarioId());
+        this.restauranteId = reserva.getRestauranteId();
+        this.usuarioId = reserva.getUsuarioId();
         this.data = reserva.getData();
         this.numeroPessoas = reserva.getNumeroPessoas();
         this.status = reserva.getStatus().name();
@@ -38,8 +38,9 @@ public class ReservaJpaEntity {
 
     public Reserva toReserva() {
         return new Reserva(
-                null, // O restaurante será recuperado em outra camada
-                null, // O usuário será recuperado em outra camada
+                this.id,
+                this.usuarioId,
+                this.restauranteId,
                 this.data,
                 this.numeroPessoas,
                 StatusReserva.valueOf(this.status)

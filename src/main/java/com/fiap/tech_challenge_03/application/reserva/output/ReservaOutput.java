@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 
 public record ReservaOutput(
         String id,
-        Long usuarioId,
-        Long restauranteId,
+        String usuarioId,
+        String restauranteId,
         LocalDateTime data,
         Integer numeroPessoas,
         StatusReserva status) {
@@ -16,8 +16,8 @@ public record ReservaOutput(
     public static ReservaOutput from(Reserva reserva) {
         return new ReservaOutput(
                 reserva.getId(),
-                Long.parseLong(reserva.getUsuarioId()),
-                Long.parseLong(reserva.getRestauranteId()),
+                reserva.getUsuarioId(),
+                reserva.getRestauranteId(),
                 reserva.getData(),
                 reserva.getNumeroPessoas(),
                 reserva.getStatus()
