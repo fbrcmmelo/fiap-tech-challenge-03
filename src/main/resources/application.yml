@@ -5,7 +5,8 @@ spring:
     active: ${PROFILE:default}
   data:
     mongodb:
-      host: mongo-container
+      host: localhost
+      port: 27019
       username: root
       password: rootpass
       database: app-database
