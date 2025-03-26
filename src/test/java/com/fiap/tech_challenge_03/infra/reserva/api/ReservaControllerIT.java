@@ -36,6 +36,7 @@ class ReservaControllerIT {
         var usuarioInput = UsuarioBuilder.cadastroInput();
         var restauranteInput = RestauranteBuilder.cadastroInput();
 
+        // Cadastrar usuário
         final var usuarioCadastrado = given()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .body(usuarioInput)
@@ -45,6 +46,7 @@ class ReservaControllerIT {
                 .statusCode(201)
                 .extract().as(UsuarioDTO.class);
 
+        // Cadastrar restaurante
         final var restauranteCadastrado = given()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .body(restauranteInput)
@@ -54,6 +56,7 @@ class ReservaControllerIT {
                 .statusCode(201)
                 .extract().as(RestauranteDTO.class);
 
+        // Criar a reserva
         var reservaInput = CadastrarReservaInput.builder()
                 .data("2025-04-01T19:00:00")
                 .numeroPessoas(4)

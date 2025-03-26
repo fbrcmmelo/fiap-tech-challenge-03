@@ -25,10 +25,6 @@ class ReservaControllerTest {
 
     @Mock
     private CadastrarReservaUseCase realizarReservaUseCase;
-    @Mock
-    private CadastrarUsuarioUseCase cadastrarUsuarioUseCase;
-    @Mock
-    private CadastrarRestauranteUseCase cadastrarRestauranteUseCase;
 
     @InjectMocks
     private ReservaController reservaController;
