@@ -13,13 +13,16 @@ public class ReservaMapper {
 
     public static ReservaDTO dtoFrom(ReservaOutput output) {
 
+        String status = output.status() != null ? output.status().toString() : "PENDENTE"; // Substitua "DEFAULT_STATUS" por um valor apropriado.
+
+
         return ReservaDTO.builder()
                 .id(output.id())
                 .restauranteId(output.restauranteId())
                 .usuarioId(output.usuarioId())
                 .data(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(output.data()))
                 .numeroPessoas(output.numeroPessoas())
-                .status(output.status().toString())
+                .status(output.status().name())
                 .build();
     }
 }

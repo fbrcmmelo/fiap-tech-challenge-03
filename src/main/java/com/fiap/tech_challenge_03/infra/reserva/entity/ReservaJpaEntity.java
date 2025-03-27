@@ -46,13 +46,4 @@ public class ReservaJpaEntity {
                 StatusReserva.valueOf(this.status)
         );
     }
-
-    public Example<ReservaJpaEntity> toExample() {
-        var matcher = ExampleMatcher.matching()
-                .withIgnoreNullValues()
-                .withIgnoreCase()
-                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
-
-        return Example.of(this, matcher);
-    }
 }
