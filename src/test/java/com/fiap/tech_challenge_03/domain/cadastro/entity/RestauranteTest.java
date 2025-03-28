@@ -24,7 +24,7 @@ class RestauranteTest {
         assertThat(restaurante.getNome().nome()).isEqualTo("Restaurante Teste");
         assertThat(restaurante.getLocalidade()).isEqualTo(localidade);
         assertThat(restaurante.getFuncionamento()).isEqualTo(funcionamento);
-        assertThat(restaurante.getCapacidade()).isEqualTo(100);
+        assertThat(restaurante.getQuantidadeMesas()).isEqualTo(100);
         assertThat(restaurante.getTipoDeCozinha()).isEqualTo("Italiana");
     }
 
@@ -37,11 +37,11 @@ class RestauranteTest {
         // Act & Assert
         assertThatThrownBy(() -> new Restaurante("1", "Restaurante Teste", localidade, funcionamento, 0, "Italiana"))
                 .isInstanceOf(DomainException.class)
-                .hasMessage("Capacidade do restaurante não pode ser menor que 1");
+                .hasMessage("Quantidade Mesas do restaurante não pode ser menor que 1");
 
         assertThatThrownBy(() -> new Restaurante(null, "Restaurante Teste", localidade, funcionamento, -1, "Italiana"))
                 .isInstanceOf(DomainException.class)
-                .hasMessage("Capacidade do restaurante não pode ser menor que 1");
+                .hasMessage("Quantidade Mesas do restaurante não pode ser menor que 1");
     }
 
     @Test

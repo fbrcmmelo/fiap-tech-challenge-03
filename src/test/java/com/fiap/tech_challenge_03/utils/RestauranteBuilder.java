@@ -35,7 +35,9 @@ public class RestauranteBuilder {
 
     public static RestauranteOutput output() {
         return new RestauranteOutput("id", "nome", "tipo de cozinha", ValueObjectBuilder.getLocalidade(),
-                ValueObjectBuilder.getFuncionamento(), 123);
+                ValueObjectBuilder.getFuncionamento(), 123,
+                ValueObjectBuilder.getMesas()
+        );
     }
 
     public static RestauranteDTO dto() {

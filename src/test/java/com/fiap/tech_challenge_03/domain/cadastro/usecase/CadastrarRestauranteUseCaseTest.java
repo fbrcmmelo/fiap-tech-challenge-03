@@ -54,7 +54,7 @@ class CadastrarRestauranteUseCaseTest {
                 .isNotNull();
         assertThat(output.id()).isEqualTo(outputMocked.id());
         assertThat(output.nome()).isEqualTo(outputMocked.nome());
-        assertThat(output.capacidade()).isEqualTo(outputMocked.capacidade());
+        assertThat(output.quantidadeMesas()).isEqualTo(outputMocked.quantidadeMesas());
         assertThat(output.localidade()).isEqualTo(outputMocked.localidade());
         assertThat(output.funcionamento()).isEqualTo(outputMocked.funcionamento());
         assertThat(output.tipoDeCozinha()).isEqualTo(outputMocked.tipoDeCozinha());

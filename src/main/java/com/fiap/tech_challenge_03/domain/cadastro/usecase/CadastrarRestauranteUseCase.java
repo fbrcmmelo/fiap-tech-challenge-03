@@ -16,13 +16,14 @@ public class CadastrarRestauranteUseCase implements ICadastrarRestauranteUseCase
 
     private final RestauranteDomainService service;
 
+
     @Override
     public RestauranteOutput execute(final CadastrarRestauranteInput input) {
         final var localidade = new Localidade(input.numero(), input.logradouro(), input.cidade(), input.estado());
         final var funcionamento = new Funcionamento(input.horaIniFuncionamento(), input.horaFimFuncionamento(),
                 input.diasDaSemanaFunc());
         final var restaurante = this.service.cadastrar(new Restaurante(null, input.nome(), localidade, funcionamento,
-                input.capacidade(), input.tipoDeCozinha()));
+                input.quantidadeDeMesas(), input.tipoDeCozinha()));
 
         return RestauranteOutput.from(restaurante);
     }

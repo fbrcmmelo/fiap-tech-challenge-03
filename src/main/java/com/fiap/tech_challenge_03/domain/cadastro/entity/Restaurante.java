@@ -3,9 +3,12 @@ package com.fiap.tech_challenge_03.domain.cadastro.entity;
 import com.fiap.tech_challenge_03.domain.DomainException;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Funcionamento;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.Localidade;
+import com.fiap.tech_challenge_03.domain.cadastro.vo.Mesa;
 import com.fiap.tech_challenge_03.domain.cadastro.vo.NomeRestaurante;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /*
@@ -21,19 +24,20 @@ public class Restaurante {
     private NomeRestaurante nome;
     private Localidade localidade;
     private Funcionamento funcionamento;
-    private Integer capacidade;
+    private Integer quantidadeMesas;
     private String tipoDeCozinha;
+    private List<Mesa> mesas = new ArrayList<>();
 
     public Restaurante(String id, String nome, Localidade localidade,
-                       Funcionamento funcionamento, Integer capacidade, String tipoDeCozinha) {
+                       Funcionamento funcionamento, Integer quantidadeMesas, String tipoDeCozinha) {
         Objects.requireNonNull(nome);
         Objects.requireNonNull(localidade);
         Objects.requireNonNull(funcionamento);
-        Objects.requireNonNull(capacidade);
+        Objects.requireNonNull(quantidadeMesas);
         Objects.requireNonNull(tipoDeCozinha);
 
-        if (capacidade <= 0) {
-            throw new DomainException("Capacidade do restaurante não pode ser menor que 1");
+        if (quantidadeMesas <= 0) {
+            throw new DomainException("Quantidade Mesas do restaurante não pode ser menor que 1");
         }
 
         if (tipoDeCozinha.isEmpty()) {
@@ -44,8 +48,12 @@ public class Restaurante {
         this.nome = new NomeRestaurante(nome);
         this.localidade = localidade;
         this.funcionamento = funcionamento;
-        this.capacidade = capacidade;
+        this.quantidadeMesas = quantidadeMesas;
         this.tipoDeCozinha = tipoDeCozinha;
+
+        for (int i = 1; i <= quantidadeMesas; i++) {
+            this.mesas.add(new Mesa(i));
+        }
     }
 
 }
